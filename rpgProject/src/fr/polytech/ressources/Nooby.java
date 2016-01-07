@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package fr.polytech.ressources;
-import fr.polytech.ressources.Character;
 import java.util.ArrayList;
 /**
  *
@@ -12,14 +11,13 @@ import java.util.ArrayList;
  */
 public class Nooby extends Character {
     
-    public Nooby (){
+    public Nooby(){
         this.name = "Kevin";
         this.hp = 150;
         this.mp = 50;
         
         this.level = 1;
         this.experience = new Experience(0);
-        this.inventory = new ArrayList<Item>();
         
         initAbilityScores();
         initSkills();
@@ -41,8 +39,7 @@ public class Nooby extends Character {
 
     @Override
     public void initInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.inventory = new ArrayList<>();
+        
     }
-    
-    
 }
