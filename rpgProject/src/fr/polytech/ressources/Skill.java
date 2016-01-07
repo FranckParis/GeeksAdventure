@@ -5,8 +5,6 @@
  */
 package fr.polytech.ressources;
 
-import me.grea.antoine.utils.Dice;
-
 /**
  *
  * @author Francky
@@ -16,26 +14,47 @@ public class Skill {
     //Attributes
     private String name;
     private int assocStat;
-    
     private int duration;
     private int nbDices;
-    
     private int diceValue;
     private int armorRating;
-    
     private int mpCost;
     
-    private Character target;
+    //Constructors
     
-    //Constructor
+     /**
+     * Standard constructor for attack with unique damage dice
+     * @param n name
+     * @param d damage dice
+     * @param mp mp cost
+     * @param asStat stat used to make the roll
+     */
+    public Skill (String n, int d, int mp, int asStat){
+        this(n, d, 1, 0, 0, mp, asStat);
+    }
     
-    //Attack
+    /**
+     * Constructor for attack with several damage dices
+     * @param n name
+     * @param d damage per Dice
+     * @param nb number of dices
+     * @param mp mp cost
+     * @param asStat stat used to make the roll
+     */
     public Skill (String n, int d, int nb, int mp, int asStat){
         this(n, d, nb, 0, 0, mp, asStat);
     }
-    
  
-    //Base constructor
+    /**
+     * Most detailed constructor
+     * @param n name
+     * @param d damage per dice
+     * @param nb number of Dice
+     * @param armor
+     * @param dur duration
+     * @param mp mp cost
+     * @param asStat stat used to make the roll
+     */
     public Skill (String n, int d, int nb, int armor, int dur, int mp, int asStat){
         this.name = n;
         this.mpCost = mp;
@@ -47,5 +66,13 @@ public class Skill {
     }
     
     //Methods
- 
+    
+    public void useSkill(Character source, Character target) {
+        // jet dé
+        // réussi : return true ?
+        target.armorClass += this.armorRating;
+        target.hp -= (this.diceValue * this.nbDices);
+        source.mp -= this.mpCost;
+        // échec : return false ?
+    }
 }
