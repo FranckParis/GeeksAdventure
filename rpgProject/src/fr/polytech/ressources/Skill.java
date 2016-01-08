@@ -14,27 +14,30 @@ public class Skill {
     //Attributes
     private String name;
     private int assocStat;
-    private int duration;
     private int nbDices;
     private int diceValue;
-    private int armorRating;
     private int mpCost;
+    private CharState charState;
     
     //Constructors
     
      /**
-     * Standard constructor for attack with unique damage dice
+     * Standard constructor for attack skills with unique damage dice
      * @param n name
      * @param d damage dice
      * @param mp mp cost
      * @param asStat stat used to make the roll
      */
     public Skill (String n, int d, int mp, int asStat){
-        this(n, d, 1, 0, 0, mp, asStat);
+        this(n, d, 1, mp, asStat, null);
+    }
+    
+    public Skill (String n, int d, int mp, int asStat, CharState charS){
+        this(n, d, 1, mp, asStat, charS);
     }
     
     /**
-     * Constructor for attack with several damage dices
+     * Constructor for attack skills with several damage dices
      * @param n name
      * @param d damage per Dice
      * @param nb number of dices
@@ -42,7 +45,7 @@ public class Skill {
      * @param asStat stat used to make the roll
      */
     public Skill (String n, int d, int nb, int mp, int asStat){
-        this(n, d, nb, 0, 0, mp, asStat);
+        this(n, d, nb, mp, asStat, null);
     }
  
     /**
@@ -50,29 +53,52 @@ public class Skill {
      * @param n name
      * @param d damage per dice
      * @param nb number of Dice
-     * @param armor
-     * @param dur duration
      * @param mp mp cost
      * @param asStat stat used to make the roll
      */
-    public Skill (String n, int d, int nb, int armor, int dur, int mp, int asStat){
+    public Skill (String n, int d, int nb, int mp, int asStat, CharState charS){
         this.name = n;
         this.mpCost = mp;
-        this.armorRating = armor;
         this.diceValue = d;
-        this.duration = dur;
         this.assocStat = asStat;
         this.nbDices = nb;
+        this.charState = charS;
     }
+    
+   
     
     //Methods
     
-    public void useSkill(Character source, Character target) {
+    public boolean successTest(Character source) {
         // jet dé
-        // réussi : return true ?
-        target.armorClass += this.armorRating;
-        target.hp -= (this.diceValue * this.nbDices);
-        source.mp -= this.mpCost;
-        // échec : return false ?
+        
+        boolean success = false;
+        switch(this.assocStat){
+            case 0:
+                success = source.getAbilityScores().abilityTestStrength();
+            case 1:
+                success = source.getAbilityScores().abilityTestDexterity();
+            case 2:
+                success = source.getAbilityScores().abilityTestIntel();
+        }
+       return success;
     }
+    
+    public void useSkillCharState (Character source, Character target){
+        if(! target.isImmune()){
+            if(successTest(source)){
+                target.getCharStates().add(this.charState);
+            }
+        }  
+    }
+    
+    public void useSkillDamage (Character source, Character target){
+        
+        if(successTest(source)){
+            target.hp -= (this.diceValue * this.nbDices)-(target.getArmorClass()+
+                    target.getArmorBuff());
+            source.mp -= this.mpCost;
+        }
+    }
+    
 }

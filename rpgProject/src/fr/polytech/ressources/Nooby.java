@@ -19,22 +19,22 @@ public class Nooby extends Character {
         this.level = 1;
         this.experience = new Experience(0);
         
-        initAbilityScores();
+        this.abilityScores = new AbilityScores(60, 30, 10);
         initSkills();
         initInventory();
     }
 
     @Override
-    public void initAbilityScores() {
-        //Force, Dext, Int
-        this.abilityScores.add(60);
-        this.abilityScores.add(30);
-        this.abilityScores.add(10);
-    }
-
-    @Override
     public void initSkills() {
-        this.skills.add(new Skill ("Mandale.exe", 6, 3, 0, 0));
+        
+        //Primary skills
+        this.skills.add(new Skill ("La Patate", 6, 2, 0, 0 ));
+        this.skills.add(new Skill ("La Parade", 0, 0, 0, new CharState("Parade", 5)));
+                
+        //Specific skills
+        this.skills.add(new Skill ("Mandale.exe", 30, 10, 0));
+        this.skills.add(new Skill ("Même pas mal", 0, 0, 15, 0, new CharState("Même pas mal", 10, 3)));
+        this.skills.add(new Skill ("This is SPAAAAARTA", 20, 3, 50, 0));
     }
 
     @Override

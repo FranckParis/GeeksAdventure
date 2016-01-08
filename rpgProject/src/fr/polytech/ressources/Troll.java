@@ -19,24 +19,18 @@ public class Troll extends Character {
      */
     public Troll(String name){
         this.name = name;
-        this.hp = 0;
-        this.mp = 0;
+        this.hp = 120;
+        this.mp = 80;
         
         this.level = 1;
         this.experience = new Experience(0);
         
-        initAbilityScores();
+        this.abilityScores = new AbilityScores(20, 50, 30);
+        
         initSkills();
         initInventory();
     }
 
-    @Override
-    public void initAbilityScores() {
-        //Force, Dext, Int
-        this.abilityScores.add(0);
-        this.abilityScores.add(0);
-        this.abilityScores.add(0);
-    }
 
     @Override
     public void initSkills() {

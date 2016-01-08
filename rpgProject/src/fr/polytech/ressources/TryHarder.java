@@ -19,24 +19,18 @@ public class TryHarder extends Character {
      */
     public TryHarder(String name){
         this.name = name;
-        this.hp = 0;
-        this.mp = 0;
+        this.hp = 75;
+        this.mp = 150;
         
         this.level = 1;
         this.experience = new Experience(0);
         
-        initAbilityScores();
+        this.abilityScores = new AbilityScores(10, 20, 70);
+        
         initSkills();
         initInventory();
     }
 
-    @Override
-    public void initAbilityScores() {
-        //Force, Dext, Int
-        this.abilityScores.add(0);
-        this.abilityScores.add(0);
-        this.abilityScores.add(0);
-    }
 
     @Override
     public void initSkills() {

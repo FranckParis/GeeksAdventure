@@ -11,4 +11,6 @@ package fr.polytech.ressources;
  */
 class Item {
     
+    //Attributes
+    
 }

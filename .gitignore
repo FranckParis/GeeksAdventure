@@ -13,3 +13,5 @@ hs_err_pid*
 # NetBeans files
 private.properties
 rpgProject/nbproject/private/private.properties
+/rpgProject/build/
+/rpgProject/dist/
