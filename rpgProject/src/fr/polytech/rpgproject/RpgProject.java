@@ -5,6 +5,8 @@
  */
 package fr.polytech.rpgproject;
 
+import fr.polytech.gameCore.Game;
+
 /**
  *
  * @author Nicolas
@@ -15,7 +17,8 @@ public class RpgProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Game game = new Game();
+        game.start();
     }
     
 }
