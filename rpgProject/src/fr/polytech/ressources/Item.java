@@ -7,10 +7,32 @@ package fr.polytech.ressources;
 
 /**
  *
- * @author Francky
+ * @author Diab
  */
-class Item {
+abstract class Item {
     
     //Attributes
+    protected int weight;
+    
+    protected String name;
+    
+    protected CharState charStates;
+    
+    //Methods
+    
+    // Getters
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public CharState getCharStates() {
+        return charStates;
+    }
+    
     
 }
