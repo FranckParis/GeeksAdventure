@@ -117,11 +117,13 @@ public abstract class Character {
             }
             
         }
-        removeCharState();
+        removeCharState(toDelete);
     }
 
-    public void removeCharState(){
-        
+    public void removeCharState(ArrayList <Integer> toDelete){
+        for (int i=toDelete.size(); i>=0; i--) {
+            this.charStates.remove(i);
+        }
     }
     
     // getters
