@@ -125,6 +125,13 @@ public abstract class Character {
     }
     
     // getters
+    public int getTotalArmor() {
+        return this.getArmorClass() + this.getArmorBuff() + 
+                this.getHelmet().getArmorClass() +this.getPlackart().getArmorClass() +
+                this.getGauntlet().getArmorClass() +this.getTrousers().getArmorClass() +
+                this.getBoots().getArmorClass();
+    }
+    
     public String getName() {
         return name;
     }

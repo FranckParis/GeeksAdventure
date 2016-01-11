@@ -93,12 +93,12 @@ public class Skill {
     }
     
     public void useSkillDamage (Character source, Character target){
-        
         if(successTest(source)){
-            target.hp -= (this.diceValue * this.nbDices)-(target.getArmorClass()+
-                    target.getArmorBuff());
+            int damage = this.diceValue * this.nbDices + 
+                    source.getWeapon().getDamageDice() * source.getWeapon().getNbDice();
+            int armor = target.getTotalArmor();
+            target.hp -= (damage - armor);
             source.mp -= this.mpCost;
         }
     }
-    
 }
