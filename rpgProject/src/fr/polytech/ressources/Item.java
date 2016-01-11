@@ -15,6 +15,7 @@ abstract class Item {
     protected int weight;
     
     protected String name;
+    protected String description;
     
     protected CharState charStates;
     
@@ -29,10 +30,22 @@ abstract class Item {
     public String getName() {
         return name;
     }
+    
+    public String getDescription() {
+        return description;
+    }
 
     public CharState getCharStates() {
         return charStates;
     }
     
+    @Override
+    public String toString() {
+        String message = name + ". ";
+        message += description + ". ";
+        message += "Weight : " + this.getWeight();
+        
+        return message;
+    }
     
 }

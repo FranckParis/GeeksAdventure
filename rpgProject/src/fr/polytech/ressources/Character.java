@@ -126,6 +126,18 @@ public abstract class Character {
         }
     }
     
+    // toString
+    public String inventoryToString() {
+        String message = "-------Inventory-------";
+        
+        for(int i=0; i<this.getInventory().size(); i++) {
+            message += "\nItem n°" + i + " - ";
+            message += this.getInventory().get(i).toString();
+        }
+        
+        return message;
+    }
+    
     // getters
     public int getTotalArmor() {
         return this.getArmorClass() + this.getArmorBuff() + 
