@@ -5,10 +5,16 @@
  */
 package fr.polytech.gameCore;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Francky
  */
 public class Game {
+    private ArrayList<Event> turns;
     
+    public void start() {
+        
+    }
 }

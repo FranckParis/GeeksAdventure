@@ -9,6 +9,19 @@ package fr.polytech.gameCore;
  *
  * @author Francky
  */
-public class Event {
+public abstract class Event {
+    // Attributes
+    protected String name;
+    protected String text;
     
+    // Methods
+    
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public String getText() {
+        return text;
+    }
 }

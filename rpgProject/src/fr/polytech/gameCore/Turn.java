@@ -5,10 +5,21 @@
  */
 package fr.polytech.gameCore;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Francky
  */
 public class Turn {
+    // Attributes
+    private ArrayList<Action> turns;
+    
+    // Constructor
+    public Turn() {
+        
+    }
+    
+    // Methods
     
 }
