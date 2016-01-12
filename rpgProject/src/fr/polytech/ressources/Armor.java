@@ -24,9 +24,10 @@ public class Armor extends Item {
      * @param armorClass
      * @param armorType
      * @param weight 
+     * @param desc
      */
-    public Armor(String name, int armorClass, int armorType, int weight) {
-        this(name, armorClass, armorType, weight, null);
+    public Armor(String name, int armorClass, int armorType, int weight, String desc) {
+        this(name, armorClass, armorType, weight, desc, null);
     }
     
     /**
@@ -36,13 +37,15 @@ public class Armor extends Item {
      * @param armorType
      * @param weight
      * @param charStates 
+     * @param desc
      */
-    public Armor(String name, int armorClass, int armorType, int weight, 
+    public Armor(String name, int armorClass, int armorType, int weight, String desc,
             CharState charStates) {
         this.name = name;
         this.armorClass = armorClass;
         this.armorType = armorType;
         this.weight = weight;
+        this.description = desc;
         this.charStates = charStates;
     }
     
