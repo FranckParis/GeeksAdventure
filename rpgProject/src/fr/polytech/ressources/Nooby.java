@@ -42,6 +42,7 @@ public class Nooby extends Character {
         this.inventory = new ArrayList<>();
         
         Armor chaussettesSales = new Armor("Chaussettes sales",0,5,1,"Ca puuue !!");
+        this.inventory.add(chaussettesSales);
     }
     
     @Override
