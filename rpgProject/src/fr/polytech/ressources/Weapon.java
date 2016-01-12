@@ -72,6 +72,16 @@ public class Weapon extends Item {
     
     // Methods
 
+    @Override
+    public String toString() {
+        String message = super.toString();
+        message += " Damage : " + this.nbDice + "d" + this.damageDice + ". ";
+        
+        message += "Effect : " + this.charStates.toString() + ". ";
+        
+        return message;
+    }
+    
     // Getters
     
     public int getDamageDice() {

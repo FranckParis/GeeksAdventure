@@ -170,6 +170,11 @@ public abstract class Character {
         return level;
     }
 
+    public int getActualWeight() {
+        return helmet.getWeight() + plackart.getWeight() + gauntlet.getWeight() +
+                trousers.getWeight() + boots.getWeight() + weapon.getWeight();
+    }
+    
     public int getMaxWeight() {
         return maxWeight;
     }

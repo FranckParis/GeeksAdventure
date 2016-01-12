@@ -51,6 +51,36 @@ public class Armor extends Item {
     
     // Methods
     
+    @Override
+    public String toString() {
+        String message = super.toString();
+        message += " Armor class : " + this.armorClass + ". ";
+        
+        message += "Armor Type : ";
+        
+        switch(this.armorType) {
+            case 0:
+                message += "Helmet. ";
+                break;
+            case 1:
+                message += "Plackart. ";
+                break;
+            case 2:
+                message += "Gauntlets. ";
+                break;
+            case 3:
+                message += "Trousers. ";
+                break;
+            case 4:
+                message += "Boots. ";
+                break;
+        }
+        
+        message += "Effect : " + this.charStates.toString() + ". ";
+        
+        return message;
+    }
+    
     // Getters
 
     public int getArmorClass() {
