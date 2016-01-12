@@ -42,4 +42,14 @@ public class Nooby extends Character {
         this.inventory = new ArrayList<>();
         
     }
+    
+    @Override
+    public int getMaxHp() {
+        return this.getHp() + this.abilityScores.getStrength() - 60;
+    }
+
+    @Override
+    public int getMaxMp() {
+        return this.getMp() + this.abilityScores.getIntel() - 10;
+    }
 }

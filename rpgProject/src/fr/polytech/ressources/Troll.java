@@ -42,4 +42,14 @@ public class Troll extends Character {
         this.inventory = new ArrayList<>();
         
     }
+
+    @Override
+    public int getMaxHp() {
+        return this.getHp() + this.abilityScores.getStrength() - 20;
+    }
+
+    @Override
+    public int getMaxMp() {
+        return this.getMp() + this.abilityScores.getIntel() - 30;
+    }
 }

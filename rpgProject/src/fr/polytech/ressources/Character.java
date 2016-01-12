@@ -146,6 +146,10 @@ public abstract class Character {
                 this.getBoots().getArmorClass();
     }
     
+    public abstract int getMaxHp();
+    
+    public abstract int getMaxMp();
+    
     public String getName() {
         return name;
     }
