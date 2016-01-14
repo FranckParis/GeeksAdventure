@@ -16,19 +16,21 @@ public class Fight extends Event {
     // Attributes
     private ArrayList<Turn> turns;
     
-    private ArrayList<Charact> groupNPC;
-    private ArrayList<Charact> groupPC;
+
+    //private ArrayList<Charact> groupNPC;
+    //private ArrayList<Charact> groupPC;
+
     
     // Constructor
     public Fight(ArrayList<Charact> groupNPC, String text) {
         //this.groupPC = 
-        this.groupNPC = groupNPC;
+        //this.groupNPC = groupNPC;
         this.text = text;
-        this.turns.add(new Turn());
+        this.turns = new ArrayList();
     }
     
     // Methods
-    public void chooseActions() {
+    /*public void chooseActions() {
         // turn begins
         // initialize amor buffs
         for (int i=0; i<turns.size(); i++) {
@@ -40,4 +42,10 @@ public class Fight extends Event {
     public void resolveActions() {
         // End of turn, resolve actions display message
     }
+    */
+
+    public void executeFight() {
+        //uses chooseActions() and resolveTurn()
+    }
+
 }

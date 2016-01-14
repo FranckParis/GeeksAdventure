@@ -13,8 +13,8 @@ public class Nooby extends Charact {
     
     public Nooby(){
         this.name = "Kevin";
-        this.hp = 150;
-        this.mp = 50;
+        this.maxHP = 150;
+        this.maxMP = 50;
         
         this.level = 1;
         this.experience = new Experience(0);
@@ -45,6 +45,7 @@ public class Nooby extends Charact {
         this.inventory.add(chaussettesSales);
     }
     
+    /*
     @Override
     public int getMaxHp() {
         return this.getHp() + this.abilityScores.getStrength() - 60;
@@ -54,4 +55,5 @@ public class Nooby extends Charact {
     public int getMaxMp() {
         return this.getMp() + this.abilityScores.getIntel() - 10;
     }
+    */
 }

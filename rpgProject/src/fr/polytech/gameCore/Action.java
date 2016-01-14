@@ -14,12 +14,17 @@ import fr.polytech.ressources.Skill;
  */
 public class Action {
     // Attributes
-    private Charact character;
+
+    private Charact source;
+    private Charact target;
+
     private Skill skill;
     
+    
     // Constructor
-    public Action(Charact character, Skill skill) {
-        this.character = character;
+    public Action(Charact source, Skill skill, Charact target) {
+        this.source = source;
+        this.target = target;
         this.skill = skill;
     }
     
@@ -27,8 +32,13 @@ public class Action {
     
     
     // Getters
-    public Charact getCharact() {
-        return character;
+
+    public Charact getSource() {
+        return source;
+    }
+
+    public Charact getTarget() {
+        return target;
     }
 
     public Skill getSkill() {
