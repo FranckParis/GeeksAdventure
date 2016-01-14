@@ -1,0 +1,14 @@
+Questions
+
+UseSkillDamage --> Dégâts arme (au maximum?) + Dégâts skill ?
+
+
+Reste à faire :
+
+Classe Fight
+Classe Mouvement
+Classe Turn -> Choix chooseActions (Listes de personnages descendues d'un rang, maintenant dans Turn)
+Classe Game -> Scénario ?
+Classe Data -> Emplacement dans les packages ?
+
+Modèle MVC -> Affichage à quel niveau ? Exemple : affichage direct dans création persos ?

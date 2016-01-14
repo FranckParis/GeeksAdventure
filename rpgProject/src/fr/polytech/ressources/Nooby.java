@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Francky
  */
-public class Nooby extends Character {
+public class Nooby extends Charact {
     
     public Nooby(){
         this.name = "Kevin";

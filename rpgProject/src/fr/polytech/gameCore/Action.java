@@ -5,6 +5,7 @@
  */
 package fr.polytech.gameCore;
 
+import fr.polytech.ressources.Charact;
 import fr.polytech.ressources.Skill;
 
 /**
@@ -13,11 +14,11 @@ import fr.polytech.ressources.Skill;
  */
 public class Action {
     // Attributes
-    private Character character;
+    private Charact character;
     private Skill skill;
     
     // Constructor
-    public Action(Character character, Skill skill) {
+    public Action(Charact character, Skill skill) {
         this.character = character;
         this.skill = skill;
     }
@@ -26,7 +27,7 @@ public class Action {
     
     
     // Getters
-    public Character getCharacter() {
+    public Charact getCharact() {
         return character;
     }
 

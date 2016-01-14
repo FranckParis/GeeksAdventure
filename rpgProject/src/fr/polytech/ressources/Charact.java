@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Francky
  */
-public abstract class Character {
+public abstract class Charact {
     
     //Attributes
     protected String name;

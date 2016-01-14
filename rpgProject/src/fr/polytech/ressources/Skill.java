@@ -69,7 +69,7 @@ public class Skill {
     
     //Methods
     
-    public boolean successTest(Character source) {
+    public boolean successTest(Charact source) {
         // jet dé
         
         boolean success = false;
@@ -84,7 +84,7 @@ public class Skill {
        return success;
     }
     
-    public void useSkillCharState (Character source, Character target){
+    public void useSkillCharState (Charact source, Charact target){
         if(! target.isImmune()){
             if(successTest(source)){
                 target.getCharStates().add(this.charState);
@@ -92,7 +92,7 @@ public class Skill {
         }  
     }
     
-    public void useSkillDamage (Character source, Character target){
+    public void useSkillDamage (Charact source, Charact target){
         if(successTest(source)){
             int damage = this.diceValue * this.nbDices + 
                     source.getWeapon().getDamageDice() * source.getWeapon().getNbDice();

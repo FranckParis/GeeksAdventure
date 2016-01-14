@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Turn {
     // Attributes
-    private ArrayList<Action> turns;
+    private ArrayList<Action> actions;
     
     // Constructor
     public Turn() {

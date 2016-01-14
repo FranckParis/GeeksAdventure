@@ -5,6 +5,7 @@
  */
 package fr.polytech.gameCore;
 
+import fr.polytech.ressources.Charact;
 import java.util.ArrayList;
 
 /**
@@ -15,11 +16,11 @@ public class Fight extends Event {
     // Attributes
     private ArrayList<Turn> turns;
     
-    private ArrayList<Character> groupNPC;
-    private ArrayList<Character> groupPC;
+    private ArrayList<Charact> groupNPC;
+    private ArrayList<Charact> groupPC;
     
     // Constructor
-    public Fight(ArrayList<Character> groupNPC, String text) {
+    public Fight(ArrayList<Charact> groupNPC, String text) {
         //this.groupPC = 
         this.groupNPC = groupNPC;
         this.text = text;

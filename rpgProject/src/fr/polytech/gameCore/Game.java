@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Game {
     
     // Attributes
-    private ArrayList<Event> turns;
+    private ArrayList<Event> events;
     
     // Constructor
     public Game() {
