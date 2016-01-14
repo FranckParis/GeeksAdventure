@@ -6,10 +6,12 @@ import java.util.ArrayList;
  *
  * @author Francky
  */
-public abstract class Character {
+public abstract class Charact {
     
     //Attributes
     protected String name;
+    protected int maxHP;
+    protected int maxMP;
     protected int hp;
     protected int mp;
     protected int armorClass;
@@ -126,6 +128,12 @@ public abstract class Character {
         }
     }
     
+    public void resetCharact() {
+        this.hp = this.maxHP;
+        this.mp = this.maxMP;
+        this.charStates= new ArrayList();
+    }
+            
     // toString
     public String inventoryToString() {
         String message = "-------Inventory-------";
@@ -146,9 +154,13 @@ public abstract class Character {
                 this.getBoots().getArmorClass();
     }
     
-    public abstract int getMaxHp();
+    public int getMaxHp() {
+        return maxHP;
+    }
     
-    public abstract int getMaxMp();
+    public int getMaxMp() {
+        return maxMP;
+    }
     
     public String getName() {
         return name;
@@ -212,6 +224,16 @@ public abstract class Character {
         }
         return immune;
     }
+    
+    public boolean isStunned(){
+        boolean stunned = false;
+        for(int i =0; i<charStates.size(); i++){
+            if(charStates.get(i).isStunned()){
+                stunned = true;
+            }
+        }
+        return stunned;
+    }
 
     public Weapon getWeapon() {
         return weapon;
@@ -236,7 +258,8 @@ public abstract class Character {
     public Armor getGauntlet() {
         return gauntlet;
     }
-    
-    
-    
+                
+    public boolean isDead() {
+        return (this.hp <= 0);
+    }
 }

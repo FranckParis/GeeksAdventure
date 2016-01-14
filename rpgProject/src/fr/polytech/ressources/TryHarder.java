@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Francky
  */
-public class TryHarder extends Character {
+public class TryHarder extends Charact {
     
     /**
      * Standard constructor to create a TryHarder character

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Francky
  */
-public class Troll extends Character {
+public class Troll extends Charact {
     
     /**
      * Standard constructor to create a Troll character
