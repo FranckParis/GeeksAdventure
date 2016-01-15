@@ -101,4 +101,10 @@ public class Skill {
             source.mp -= this.mpCost;
         }
     }
+
+    public String getName() {
+        return name;
+    }
+    
+    
 }

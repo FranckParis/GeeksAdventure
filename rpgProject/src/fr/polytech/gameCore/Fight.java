@@ -16,15 +16,14 @@ public class Fight extends Event {
     // Attributes
     private ArrayList<Turn> turns;
     
-
-    //private ArrayList<Charact> groupNPC;
-    //private ArrayList<Charact> groupPC;
-
+    private ArrayList<Charact> groupNPC;
+    private ArrayList<Charact> groupPC;
     
     // Constructor
-    public Fight(ArrayList<Charact> groupNPC, String text) {
-        //this.groupPC = 
-        //this.groupNPC = groupNPC;
+    public Fight(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC, String name, String text) {
+        this.groupPC = groupPC;
+        this.groupNPC = groupNPC;
+        this.name = name;
         this.text = text;
         this.turns = new ArrayList();
     }
