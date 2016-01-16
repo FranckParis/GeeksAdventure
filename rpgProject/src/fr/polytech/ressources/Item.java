@@ -9,7 +9,7 @@ package fr.polytech.ressources;
  *
  * @author Diab
  */
-abstract class Item {
+public abstract class Item {
     
     //Attributes
     protected int weight;

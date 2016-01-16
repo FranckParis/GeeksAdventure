@@ -29,6 +29,19 @@ public class Turn {
     }
     
     // Methods
+    
+    public void start() {
+        initArmorBuff();
+        chooseActions();
+        resolveTurn();
+    }
+    
+    public void initArmorBuff() {
+        for (int i=0; i<groupPC.size(); i++) {
+            groupPC.get(i).setArmorBuff(0);
+        }
+    }
+    
     private void chooseActions() {
         Scanner sc = new Scanner(System.in);
         Printer p = new Printer();

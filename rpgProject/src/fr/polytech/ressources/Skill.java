@@ -106,5 +106,29 @@ public class Skill {
         return name;
     }
     
+    @Override
+    public String toString() {
+        String message = name + " (";
+        switch (assocStat) {
+            case 0:
+                message += "force";
+                break;
+            case 1:
+                message += "dextérité";
+                break;
+            case 2:
+                message += "intelligence";
+                break;
+        }
+        message += ") : ";
+        message += nbDices + "d" + diceValue + " damage. ";
+        message += "Cost : " + mpCost + " mana.";
+        
+        if (charState != null) {
+            message += " Effect : " + charState.toString();
+        }
+        
+        return message;
+    }
     
 }

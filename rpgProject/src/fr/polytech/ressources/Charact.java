@@ -1,5 +1,6 @@
 package fr.polytech.ressources;
 
+import fr.polytech.gameCore.Action;
 import java.util.ArrayList;
 
 /**
@@ -133,6 +134,14 @@ public abstract class Charact {
         this.mp = this.maxMP;
         this.charStates= new ArrayList();
     }
+    
+    // Actions
+    public Action chooseAction(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
+        System.out.println(skillsToString());
+        // menu, choix du skill
+        Action action = new Action(null,null,null);
+        return action;
+    }
             
     // toString
     public String inventoryToString() {
@@ -141,6 +150,30 @@ public abstract class Charact {
         for(int i=0; i<this.getInventory().size(); i++) {
             message += "\nItem n°" + i + " - ";
             message += this.getInventory().get(i).toString();
+        }
+        
+        return message;
+    }
+    
+    // toString
+    public String groupToString(ArrayList<Charact> group) {
+        String message = "";
+        
+        for (int i=0; i<group.size(); i++) {
+            message += group.get(i).getName() + " " + group.get(i).getHp() + "/"
+                    + group.get(i).getMaxHp() + " hp " + group.get(i).getMp() + 
+                    "/" + group.get(i).getMaxMp() +"\n";
+        }
+        
+        return message;
+    }
+    
+    public String skillsToString() {
+        String message = "-------Skills-------";
+        
+        for(int i=0; i<this.getSkills().size(); i++) {
+            message += "\nSkill n°" + i + " - ";
+            message += this.getSkills().get(i).toString();
         }
         
         return message;
@@ -257,6 +290,20 @@ public abstract class Charact {
 
     public Armor getGauntlet() {
         return gauntlet;
+    }
+    
+    // Setters
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public void setArmorBuff(int armorBuff) {
+        this.armorBuff = armorBuff;
+    }
+    
+    public void upMaxWeight(int val) {
+        this.maxWeight += val;
     }
                 
     public boolean isDead() {

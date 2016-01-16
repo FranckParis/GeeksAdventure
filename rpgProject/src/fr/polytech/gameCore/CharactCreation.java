@@ -62,5 +62,15 @@ public class CharactCreation extends Event {
  
         return charList;
     }
+
+    @Override
+    public void chooseActions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resolveActions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

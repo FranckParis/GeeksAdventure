@@ -6,6 +6,7 @@
 package fr.polytech.gameCore;
 
 import fr.polytech.ressources.Charact;
+import fr.polytech.ressources.Item;
 import java.util.ArrayList;
 
 /**
@@ -14,37 +15,42 @@ import java.util.ArrayList;
  */
 public class Fight extends Event {
     // Attributes
-    private ArrayList<Turn> turns;
+    private Turn turn;
     
     private ArrayList<Charact> groupNPC;
-    private ArrayList<Charact> groupPC;
+    
+    private ArrayList<Item> loot;
     
     // Constructor
-    public Fight(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC, String name, String text) {
+    public Fight(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC, String name,
+            String text, ArrayList<Item> loot) {
         this.groupPC = groupPC;
         this.groupNPC = groupNPC;
         this.name = name;
         this.text = text;
-        this.turns = new ArrayList();
+        this.loot = loot;
     }
     
     // Methods
-    /*public void chooseActions() {
+    @Override
+    public void chooseActions() {
         // turn begins
-        // initialize amor buffs
-        for (int i=0; i<turns.size(); i++) {
-            // choose actions in a menu
-            // display message if PC else random choice
+        while(!allPCDead()) {
+            this.turn = new Turn(groupPC, groupNPC);
+            turn.start();
         }
     }
     
+    
+    
+    @Override
     public void resolveActions() {
-        // End of turn, resolve actions display message
-    }
-    */
-
-    public void executeFight() {
-        //uses chooseActions() and resolveTurn()
+        if (allPCDead()) {
+            // fail
+        }
+        else {
+            // succeed
+        }
     }
 
 }
