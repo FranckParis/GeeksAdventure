@@ -19,7 +19,6 @@ public abstract class Charact {
     protected int mp;
     protected int armorClass;
     protected int armorBuff;
-    protected int level;
     protected int maxWeight;
     
     protected AbilityScores abilityScores;
@@ -237,6 +236,68 @@ public abstract class Charact {
         return message;
     }
     
+    public void checkLevelUp(){
+        Printer p = new Printer();
+        Scanner sc = new Scanner(System.in);
+        int pointsToSpend = 30;
+        
+        if(this.getExperience().isLevelUp()){
+            p.displayString("Féllicitations ! " + this.name +" a gagné un niveau !");
+            
+            while(pointsToSpend > 0){
+                 
+                p.displayString("Répartir vos 30 points de caractéristiques : "+ pointsToSpend + " points restants\n "
+                        + "1 : Force\n"
+                        + "2 : Dextérité\n"
+                        + "3 : Intelligence\n");
+                try{
+                    int abilityChoice = Integer.parseInt(sc.nextLine());
+            
+                    switch(abilityChoice) {
+                        case 1:
+                            p.displayString("Combien de points en Force ? "+ pointsToSpend + " points restants.");
+                            int numberChoiceStr = Integer.parseInt(sc.nextLine());
+                            if(numberChoiceStr >= 0 && numberChoiceStr <= 30 && pointsToSpend-numberChoiceStr > 0){
+                                this.getAbilityScores().increaseStrength(numberChoiceStr);
+                                pointsToSpend -= numberChoiceStr;
+                            }
+                            else{
+                                p.displayString("Entrer un nombre valide");
+                            }
+                        break;
+                        case 2:
+                            p.displayString("Combien de points en Dextérité ? "+ pointsToSpend + " points restants.");
+                            int numberChoiceDex = Integer.parseInt(sc.nextLine());
+                            if(numberChoiceDex != 0 && numberChoiceDex <= 30 && pointsToSpend-numberChoiceDex > 0){
+                                this.getAbilityScores().increaseDex(numberChoiceDex);
+                                pointsToSpend -= numberChoiceDex;
+                            }
+                            else{
+                                p.displayString("Entrer un nombre valide");
+                            }
+                        break;
+                        case 3:
+                            p.displayString("Combien de points en Intelligence ? "+ pointsToSpend + " points restants.");
+                            int numberChoiceIntel = Integer.parseInt(sc.nextLine());
+                            if(numberChoiceIntel != 0 && numberChoiceIntel <= 30 && pointsToSpend-numberChoiceIntel > 0){
+                                this.getAbilityScores().increaseIntel(numberChoiceIntel);
+                                pointsToSpend -= numberChoiceIntel;
+                            }
+                            else{
+                                p.displayString("Entrer un nombre valide");
+                            }
+                        break;
+                    }
+                }         
+                catch(NumberFormatException nfe)
+                {
+                    System.out.println("Entrer un nombre");
+                }
+            } 
+            this.getExperience().setLevelUp(false);
+        }
+    }
+    
     // getters
     public int getTotalArmor() {
         return this.getArmorClass() + this.getArmorBuff() + 
@@ -267,10 +328,6 @@ public abstract class Charact {
 
     public int getArmorClass() {
         return armorClass;
-    }
-
-    public int getLevel() {
-        return level;
     }
 
     public int getActualWeight() {

@@ -16,8 +16,7 @@ public class Nooby extends Charact {
         this.maxHP = 150;
         this.maxMP = 50;
         
-        this.level = 1;
-        this.experience = new Experience(0);
+        this.experience = new Experience();
         
         this.abilityScores = new AbilityScores(60, 30, 10);
         initSkills();

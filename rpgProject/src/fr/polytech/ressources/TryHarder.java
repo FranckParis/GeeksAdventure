@@ -22,8 +22,7 @@ public class TryHarder extends Charact {
         this.hp = 75;
         this.mp = 150;
         
-        this.level = 1;
-        this.experience = new Experience(0);
+        this.experience = new Experience();
         
         this.abilityScores = new AbilityScores(10, 20, 70);
         

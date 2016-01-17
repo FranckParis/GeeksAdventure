@@ -11,4 +11,5 @@ package fr.polytech.gameCore;
  */
 public class Movement {
     
+    //Attributes
 }

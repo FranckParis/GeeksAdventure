@@ -22,8 +22,7 @@ public class Troll extends Charact {
         this.hp = 120;
         this.mp = 80;
         
-        this.level = 1;
-        this.experience = new Experience(0);
+        this.experience = new Experience();
         
         this.abilityScores = new AbilityScores(20, 50, 30);
         

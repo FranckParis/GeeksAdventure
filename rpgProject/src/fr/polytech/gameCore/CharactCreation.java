@@ -42,24 +42,30 @@ public class CharactCreation extends Event {
                     + "1 : Nooby - Courageux et fier guerrier geek (Lien connexe - 'Leeroy Jenkins')\n"
                     + "2 : Troll - Lâche et mesquin voleur (travaille à la FNAC)\n"
                     + "3 : TryHarder - Puissant et intelligent mage (2.21 Gigowatts de puissance)\n");
-            int classChoice = sc.nextInt();
+            try{
+                int classChoice = Integer.parseInt(sc.nextLine());
             
-            switch(classChoice) {
-                case 1:
-                    Nooby nooby = new Nooby();
-                    charList.add(nooby);
+                switch(classChoice) {
+                    case 1:
+                        Nooby nooby = new Nooby();
+                        charList.add(nooby);
                     break;
-                case 2:
-                    Troll troll = new Troll(name);
-                    charList.add(troll);
+                    case 2:
+                        Troll troll = new Troll(name);
+                        charList.add(troll);
                     break;
-                case 3:
-                    TryHarder tryharder = new TryHarder(name);
-                    charList.add(tryharder);
+                    case 3:
+                        TryHarder tryharder = new TryHarder(name);
+                        charList.add(tryharder);
                     break;
+                }
+            }
+        
+            catch(NumberFormatException nfe)
+            {
+                System.out.println("Entrer un nombre");
             }
         }
- 
         return charList;
     }
 

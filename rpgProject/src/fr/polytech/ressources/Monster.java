@@ -21,8 +21,6 @@ public class Monster extends Charact{
         this.maxHP = HP;
         this.maxMP = MP;
         
-        this.level = lvl;
-        
         this.abilityScores = stats;
         this.skills = skills;
         this.inventory = inventory;

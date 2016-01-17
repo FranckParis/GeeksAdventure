@@ -11,8 +11,43 @@ package fr.polytech.ressources;
  */
 class Experience {
 
-    Experience(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //Attributes
+    int xpPoints;
+    int level;
+    boolean levelUp;
+    
+    //Constructors
+    public Experience() {
+        this.xpPoints = 0;
+        this.level = 1;
+        this.levelUp = false;
     }
+    
+    //Methods
+    
+    public void addXp (int xp){
+        this.xpPoints += xp;
+        if(this.xpPoints % 100 == 0){
+            this.level++;
+            this.levelUp = true;
+        }
+    }
+
+    public int getXpPoints() {
+        return xpPoints;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public boolean isLevelUp() {
+        return levelUp;
+    }
+
+    public void setLevelUp(boolean levelUp) {
+        this.levelUp = levelUp;
+    }
+    
     
 }
