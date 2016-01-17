@@ -105,6 +105,28 @@ public class Skill {
     public String getName() {
         return name;
     }
+
+    public int getAssocStat() {
+        return assocStat;
+    }
+
+    public int getNbDices() {
+        return nbDices;
+    }
+
+    public int getDiceValue() {
+        return diceValue;
+    }
+
+    public int getMpCost() {
+        return mpCost;
+    }
+
+    public CharState getCharState() {
+        return charState;
+    }
+    
+    
     
     @Override
     public String toString() {

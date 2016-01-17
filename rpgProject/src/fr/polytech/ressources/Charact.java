@@ -1,7 +1,9 @@
 package fr.polytech.ressources;
 
 import fr.polytech.gameCore.Action;
+import fr.polytech.gameCore.Printer;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -136,10 +138,66 @@ public abstract class Charact {
     }
     
     // Actions
-    public Action chooseAction(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
-        System.out.println(skillsToString());
-        // menu, choix du skill
-        Action action = new Action(null,null,null);
+    public Action chooseAction(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC) {
+        Scanner sc = new Scanner(System.in);
+        Printer p = new Printer();
+        int skillChoice;
+        int targetChoice;
+        Action action = null;
+        for (int i = 0; i < groupPC.size(); i++) {
+            if ((!groupPC.get(i).isDead()) && (!groupPC.get(i).isStunned())) {
+                p.displayString("Choisir la compétence utilisée par " + groupPC.get(i).getName() 
+                        + " :\n");
+                for (int j = 0; j < groupPC.get(i).getSkills().size(); j++) {
+                    p.displayString(Integer.toString(j+1) + " : " + 
+                            groupPC.get(i).getSkills().get(j).getName() + "\n");
+                }
+                skillChoice=sc.nextInt()-1;
+                
+                if (groupPC.get(i).getSkills().get(skillChoice).getName() == "Parade") {
+                    targetChoice = i;
+                }
+                else {
+                    p.displayString("Choisir la cible de " + 
+                            groupPC.get(i).getSkills().get(skillChoice).getName() + 
+                            " utilisée par " + groupPC.get(i).getName() + " :\n");
+                    for (int j = 0; j<groupPC.size(); j++) {
+                        p.displayString(Integer.toString(j+1) + " : " + 
+                                groupPC.get(j).getName() + "\n");
+                    }
+                    for (int j = 0; j<groupNPC.size(); j++) {
+                        p.displayString(Integer.toString(j+1+groupPC.size()) + 
+                                " : " + groupPC.get(j).getName() + "\n");
+                    }
+                    targetChoice = sc.nextInt()-1;
+                }
+                
+                if (targetChoice < groupPC.size()) {
+                    action = new Action(groupPC.get(i),
+                            groupPC.get(i).getSkills().get(skillChoice),
+                            groupPC.get(targetChoice));
+                }
+                else {
+                    action = new Action(groupPC.get(i),
+                            groupPC.get(i).getSkills().get(skillChoice),
+                            groupNPC.get(targetChoice-groupPC.size()));
+                }
+            }       
+        }
+        for (int i = 0; i<groupNPC.size(); i++) {
+            if ((!groupNPC.get(i).isDead()) && (!groupNPC.get(i).isStunned())) {
+                //disp skill choices + choose
+                //disp target choices + choose        
+                //this.actions.add(new Action(this.groupNPC.get(i),,));
+            }       
+        }
+        
+        /*System.out.println(skillsToString());
+        // menu, choix du skill / choix target
+        
+        System.out.println(groupToString(PC));
+        System.out.println(groupToString(NPC));*/
+        
         return action;
     }
             

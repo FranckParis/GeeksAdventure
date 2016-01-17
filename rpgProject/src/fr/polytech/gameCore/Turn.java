@@ -43,51 +43,7 @@ public class Turn {
     }
     
     private void chooseActions() {
-        Scanner sc = new Scanner(System.in);
-        Printer p = new Printer();
-        int skillChoice;
-        int targetChoice;
-        for (int i = 0; i < this.groupPC.size(); i++) {
-            if ((! this.groupPC.get(i).isDead()) && (! this.groupPC.get(i).isStunned())) {
-                p.displayString("Choisir la compétence utilisée par " + this.groupPC.get(i).getName() + " :\n");
-                for (int j = 0; j < this.groupPC.get(i).getSkills().size(); j++) {
-                    p.displayString(Integer.toString(j+1) + " : " + this.groupPC.get(i).getSkills().get(j).getName() + "\n");
-                }
-                skillChoice=sc.nextInt()-1;
-                
-                if (this.groupPC.get(i).getSkills().get(skillChoice).getName() == "Parade") {
-                    targetChoice = i;
-                }
-                else {
-                    p.displayString("Choisir la cible de " + this.groupPC.get(i).getSkills().get(skillChoice).getName() + " utilisée par " + this.groupPC.get(i).getName() + " :\n");
-                    for (int j = 0; j<this.groupPC.size(); j++) {
-                        p.displayString(Integer.toString(j+1) + " : " + this.groupPC.get(j).getName() + "\n");
-                    }
-                    for (int j = 0; j<this.groupNPC.size(); j++) {
-                        p.displayString(Integer.toString(j+1+this.groupPC.size()) + " : " + this.groupPC.get(j).getName() + "\n");
-                    }
-                    targetChoice = sc.nextInt()-1;
-                }
-                
-                if (targetChoice < this.groupPC.size()) {
-                    this.actions.add(new Action(this.groupPC.get(i),
-                            this.groupPC.get(i).getSkills().get(skillChoice),
-                            this.groupPC.get(targetChoice)));
-                }
-                else {
-                    this.actions.add(new Action(this.groupPC.get(i),
-                            this.groupPC.get(i).getSkills().get(skillChoice),
-                            this.groupNPC.get(targetChoice-this.groupPC.size())));
-                }
-            }       
-        } 
-        for (int i = 0; i<this.groupNPC.size(); i++) {
-            if ((! this.groupNPC.get(i).isDead()) && (! this.groupNPC.get(i).isStunned())) {
-                //disp skill choices + choose
-                //disp target choices + choose        
-                //this.actions.add(new Action(this.groupNPC.get(i),,));
-            }       
-        }
+        
     }
     
     private void resolveTurn() {
