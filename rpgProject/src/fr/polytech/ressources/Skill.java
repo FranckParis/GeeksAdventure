@@ -5,6 +5,8 @@
  */
 package fr.polytech.ressources;
 
+import me.grea.antoine.utils.Dice;
+
 /**
  *
  * @author Francky
@@ -94,8 +96,17 @@ public class Skill {
     
     public void useSkillDamage (Charact source, Charact target){
         if(successTest(source)){
-            int damage = this.diceValue * this.nbDices + 
-                    source.getWeapon().getDamageDice() * source.getWeapon().getNbDice();
+            int weaponDamage = 0;
+            Weapon weapon = source.getWeapon();
+            Dice dice = new Dice();
+            for (int i=0; i<weapon.getNbDice(); i++) {
+                weaponDamage += dice.roll(weapon.getDamageDice());
+            }
+            int skillDamage = 0;
+            for (int i=0; i<this.nbDices; i++) {
+                skillDamage += dice.roll(this.diceValue);
+            }
+            int damage = skillDamage + weaponDamage;
             int armor = target.getTotalArmor();
             target.hp -= (damage - armor);
             source.mp -= this.mpCost;

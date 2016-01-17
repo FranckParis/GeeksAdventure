@@ -1,6 +1,7 @@
 Questions
 
 UseSkillDamage --> Dégâts arme (au maximum?) + Dégâts skill ?
+-> Pas maximum, c'est bien des jets de dés. (corrigé)
 
 
 Reste à faire :
