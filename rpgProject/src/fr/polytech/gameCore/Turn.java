@@ -6,6 +6,7 @@
 package fr.polytech.gameCore;
 
 import fr.polytech.ressources.Charact;
+import fr.polytech.ressources.Monster;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,7 +44,13 @@ public class Turn {
     }
     
     private void chooseActions() {
-        
+        for (int i=0; i<groupPC.size(); i++) {
+            actions.add(groupPC.get(i).chooseAction(groupPC, groupNPC));
+        }
+        for (int i=0; i<groupNPC.size(); i++) {
+            Monster monster = (Monster)groupNPC.get(i);
+            actions.add(monster.chooseAction(groupPC, groupNPC));
+        }
     }
     
     private void resolveTurn() {
