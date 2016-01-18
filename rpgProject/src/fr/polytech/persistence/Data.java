@@ -36,11 +36,27 @@ public final class Data {
         
         // Character Cration in Game Class
         
+        //First Text
+        initText1();
+        
         // First fight
         initCombat1();
         
         // Second fight
-        
+    }
+    
+    public void initText1(){
+        String text = groupPC.get(0).getName()
+                + ", confortablement assis sur votre chaise de bureau en train "
+                + "de carry à mort une partie de lol, vous essayez d'attraper le "
+                + "coca à côté de vous. Mais ... Il est vide !!!\n"
+                + "Vous prenez alors la décision de vous déplacer rapidement, "
+                + "comme un ninja vers votre eden, le frigo.\n"
+                + "En ouvrant la porte vous êtes soudain éclaboussé par un coca sauvage !"
+                + " La nourriture a périmé et vous attaque furieusement !\n"
+                + "POUR LA HORRDEEEE";
+        TextEvent textEvent1 = new TextEvent(text);
+        events.add(textEvent1);
     }
     
     public void initCombat1() {
@@ -59,21 +75,13 @@ public final class Data {
         groupNPC.add(monster1);
         groupNPC.add(monster2);
         
-        String text = groupPC.get(0).getName()
-                + ", confortablement assis sur votre chaise de bureau en train "
-                + "de carry à mort une partie de lol, vous essayez d'attraper le "
-                + "coca à côté de vous. Mais ... Il est vide !!!\n"
-                + "Vous prenez alors la décision de vous déplacer rapidement, "
-                + "comme un ninja vers votre eden, le frigo.\n"
-                + "En ouvrant la porte vous êtes soudain éclaboussé par un coca sauvage !"
-                + " La nourriture a périmé et vous attaque furieusement !\n"
-                + "POUR LA HORRDEEEE";
+        
         
         Fight fight1 = new Fight(groupPC, groupNPC, "Frigo de la moisissure infernale", 
-                text, null, 100);
+                "Combat du Frigo de la moisissure infernale !", null, 100);
         events.add(fight1);
     }
-
+    
     public ArrayList<Event> getEvents() {
         return this.events;
     }

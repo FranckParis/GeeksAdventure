@@ -5,23 +5,36 @@
  */
 package fr.polytech.gameCore;
 
+import fr.polytech.ressources.Charact;
+import java.util.ArrayList;
+
 /**
  *
  * @author Francky
  */
-public class DialogEvent extends Event {
+public class TextEvent extends Event {
     
     //Attributes
     
+    //Constructor
+    public TextEvent (String text){
+        this.text = text;
+    }
+    
+    //Methods
+    
+    @Override
+    public void start(ArrayList<Charact> groupPC){
+        Printer p = new Printer();
+        p.displayString(text);
+    }
 
     @Override
     public void chooseActions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void resolveActions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
