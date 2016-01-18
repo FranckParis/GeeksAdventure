@@ -22,7 +22,7 @@ public class Turn {
     private ArrayList<Charact> groupPC;
     
     // Constructor
-    public Turn(ArrayList<Charact> NPC, ArrayList<Charact> PC) {
+    public Turn(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
         this.groupNPC = NPC;
         this.groupPC = PC;
         this.actions = new ArrayList();
