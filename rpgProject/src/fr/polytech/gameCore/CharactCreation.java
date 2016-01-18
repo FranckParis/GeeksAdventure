@@ -52,15 +52,15 @@ public class CharactCreation extends Event {
             
                 switch(classChoice) {
                     case 1:
-                        Nooby nooby = new Nooby();
+                        Nooby nooby = new Nooby(i);
                         charList.add(nooby);
                     break;
                     case 2:
-                        Troll troll = new Troll(name);
+                        Troll troll = new Troll(name, i);
                         charList.add(troll);
                     break;
                     case 3:
-                        TryHarder tryharder = new TryHarder(name);
+                        TryHarder tryharder = new TryHarder(name, i);
                         charList.add(tryharder);
                     break;
                 }

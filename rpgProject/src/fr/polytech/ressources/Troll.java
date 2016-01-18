@@ -17,10 +17,11 @@ public class Troll extends Charact {
      * Standard constructor to create a Troll character
      * @param name 
      */
-    public Troll(String name){
+    public Troll(String name, int pos){
         this.name = name;
         this.hp = 120;
         this.mp = 80;
+        this.position = pos;
         
         this.experience = new Experience();
         

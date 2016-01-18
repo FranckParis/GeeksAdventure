@@ -17,10 +17,11 @@ public class TryHarder extends Charact {
      * Standard constructor to create a TryHarder character
      * @param name 
      */
-    public TryHarder(String name){
+    public TryHarder(String name, int pos){
         this.name = name;
         this.hp = 75;
         this.mp = 150;
+        this.position = pos;
         
         this.experience = new Experience();
         

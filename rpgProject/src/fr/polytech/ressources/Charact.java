@@ -20,6 +20,7 @@ public abstract class Charact {
     protected int armorClass;
     protected int armorBuff;
     protected int maxWeight;
+    protected int position;
     
     protected AbilityScores abilityScores;
     protected ArrayList <Skill> skills;
@@ -142,46 +143,40 @@ public abstract class Charact {
         Printer p = new Printer();
         int skillChoice;
         int targetChoice;
+        
         Action action = null;
-        for (int i = 0; i < groupPC.size(); i++) {
-            if ((!groupPC.get(i).isDead()) && (!groupPC.get(i).isStunned())) {
-                p.displayString("Choisir la compétence utilisée par " + groupPC.get(i).getName() 
+        
+        if ((!this.isDead()) && (!this.isStunned())) {
+                p.displayString("Choisir la compétence utilisée par " + this.getName() 
                         + " :\n");
-                for (int j = 0; j < groupPC.get(i).getSkills().size(); j++) {
+                for (int j = 0; j < this.getSkills().size(); j++) {
                     p.displayString(Integer.toString(j+1) + " : " + 
-                            groupPC.get(i).getSkills().get(j).getName() + "\n");
+                            this.getSkills().get(j).getName() + "\n");
                 }
                 skillChoice=sc.nextInt()-1;
                 
-                if (groupPC.get(i).getSkills().get(skillChoice).getName().equals("Parade")) {
-                    targetChoice = i;
+                if (this.getSkills().get(skillChoice).getName().equals("Parade")) {
+                    targetChoice = this.getPosition();
                 }
                 else {
                     p.displayString("Choisir la cible de " + 
-                            groupPC.get(i).getSkills().get(skillChoice).getName() + 
-                            " utilisée par " + groupPC.get(i).getName() + " :\n");
-                    for (int j = 0; j<groupPC.size(); j++) {
-                        p.displayString(Integer.toString(j+1) + " : " + 
-                                groupPC.get(j).getName() + "\n");
-                    }
-                    for (int j = 0; j<groupNPC.size(); j++) {
-                        p.displayString(Integer.toString(j+1+groupPC.size()) + 
-                                " : " + groupPC.get(j).getName() + "\n");
-                    }
+                            this.getSkills().get(skillChoice).getName() + 
+                            " utilisée par " + this.getName() + " :\n");
+                            groupToString(groupPC);
+                            groupToString(groupNPC);
                     targetChoice = sc.nextInt()-1;
                 }
                 
                 if (targetChoice < groupPC.size()) {
-                    action = new Action(groupPC.get(i),
-                            groupPC.get(i).getSkills().get(skillChoice),
+                    action = new Action(this,
+                            this.getSkills().get(skillChoice),
                             groupPC.get(targetChoice));
                 }
                 else {
-                    action = new Action(groupPC.get(i),
-                            groupPC.get(i).getSkills().get(skillChoice),
+                    action = new Action(this,
+                            this.getSkills().get(skillChoice),
                             groupNPC.get(targetChoice-groupPC.size()));
                 }
-            }       
         }
         
         return action;
@@ -204,8 +199,8 @@ public abstract class Charact {
         String message = "";
         
         for (int i=0; i<group.size(); i++) {
-            message += group.get(i).getName() + " " + group.get(i).getHp() + "/"
-                    + group.get(i).getMaxHp() + " hp " + group.get(i).getMp() + 
+            message += i + " - " + group.get(i).getName() + " \n" + group.get(i).getHp() + "/"
+                    + group.get(i).getMaxHp() + " hp \n" + group.get(i).getMp() + 
                     "/" + group.get(i).getMaxMp() +"\n";
         }
         
@@ -354,6 +349,11 @@ public abstract class Charact {
     public int getArmorBuff() {
         return armorBuff;
     }
+
+    public int getPosition() {
+        return position;
+    }
+    
     
     public boolean isImmune(){
         boolean immune = false;

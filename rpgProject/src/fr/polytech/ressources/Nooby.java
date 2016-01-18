@@ -11,10 +11,11 @@ import java.util.ArrayList;
  */
 public class Nooby extends Charact {
     
-    public Nooby(){
+    public Nooby(int pos){
         this.name = "Kevin";
         this.maxHP = 150;
         this.maxMP = 50;
+        this.position = pos;
         
         this.experience = new Experience();
         
