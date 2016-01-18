@@ -153,7 +153,7 @@ public abstract class Charact {
                 }
                 skillChoice=sc.nextInt()-1;
                 
-                if (groupPC.get(i).getSkills().get(skillChoice).getName() == "Parade") {
+                if (groupPC.get(i).getSkills().get(skillChoice).getName().equals("Parade")) {
                     targetChoice = i;
                 }
                 else {
@@ -183,19 +183,6 @@ public abstract class Charact {
                 }
             }       
         }
-        for (int i = 0; i<groupNPC.size(); i++) {
-            if ((!groupNPC.get(i).isDead()) && (!groupNPC.get(i).isStunned())) {
-                //disp skill choices + choose
-                //disp target choices + choose        
-                //this.actions.add(new Action(this.groupNPC.get(i),,));
-            }       
-        }
-        
-        /*System.out.println(skillsToString());
-        // menu, choix du skill / choix target
-        
-        System.out.println(groupToString(PC));
-        System.out.println(groupToString(NPC));*/
         
         return action;
     }

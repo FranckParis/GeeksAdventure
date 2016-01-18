@@ -26,14 +26,6 @@ public class Printer {
     public void displayString (String s){
         String[] lines = s.split("\r\n|\r|\n");
         for(int i=0; i<lines.length; i++){
-            if( i % 5 == 0) {
-                try {
-                    System.out.println("Press enter to continue display\n");
-                    System.in.read();
-                } catch (IOException ex) {
-                    Logger.getLogger(Printer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }    
             System.out.println(lines[i]);   
         }
     }
