@@ -65,7 +65,7 @@ public final class Data {
                 + "coca à côté de vous. Mais ... Il est vide !!!\n"
                 + "Vous prenez alors la décision de vous déplacer rapidement, "
                 + "comme un ninja vers votre eden, le frigo.\n"
-                + "En ouvrant la porte vous êtes soudain éclassé par un coca sauvage !"
+                + "En ouvrant la porte vous êtes soudain éclaboussé par un coca sauvage !"
                 + " La nourriture a périmé et vous attaque furieusement !\n"
                 + "POUR LA HORRDEEEE";
         

@@ -38,9 +38,13 @@ public class Game {
         events = data.getEvents();
         
         // others events
-        for (int i=1; i<events.size(); i++) {
+        for (int i=0; i<events.size(); i++) {
             events.get(i).start(groupPC);
         }
+        
+        Printer p = new Printer();
+        p.displayString("Fin du jeu ! Vous avez fait les courses, bravo !");
+        
     }
     
     // Getters
