@@ -23,12 +23,13 @@ public class Fight extends Event {
     
     // Constructor
     public Fight(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC, String name,
-            String text, ArrayList<Item> loot) {
+            String text, ArrayList<Item> loot, int rewardXP) {
         this.groupPC = groupPC;
         this.groupNPC = groupNPC;
         this.name = name;
         this.text = text;
         this.loot = loot;
+        this.rewardXP = rewardXP;
     }
     
     // Methods

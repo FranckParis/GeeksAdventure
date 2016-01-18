@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class CharactCreation extends Event {
     
     //Attributes
-    //private ArrayList<Charact> characters;
+    private ArrayList<Charact> groupPC;
     
     //Constructor
     public CharactCreation() {
@@ -25,10 +25,15 @@ public class CharactCreation extends Event {
     }   
     
     //Methods
+    public ArrayList<Charact> start() {
+        this.groupPC = selectionMenu();
+        
+        return groupPC;
+    }
     
     public ArrayList<Charact> selectionMenu(){
         
-        ArrayList<Charact> charList = new ArrayList<Charact>();
+        ArrayList<Charact> charList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         Printer p = new Printer();
         

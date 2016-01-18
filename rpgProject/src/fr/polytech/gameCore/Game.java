@@ -23,14 +23,31 @@ public class Game {
     
     // Constructor
     public Game() {
-        events = data.getEvents();
-        groupPC = data.getGroupPC();
+        
     }
     
     // methods
     public void start() {
-        for (int i=0; i<events.size(); i++) {
+        // The game begins here
+        // Characters creation
+        CharactCreation charactCreation = new CharactCreation();
+        groupPC = charactCreation.start();
+        
+        // Send groupPC to Data and get events list
+        data = new Data(groupPC);
+        events = data.getEvents();
+        
+        // others events
+        for (int i=1; i<events.size(); i++) {
             events.get(i).start(groupPC);
         }
     }
+    
+    // Getters
+
+    public ArrayList<Charact> getGroupPC() {
+        return groupPC;
+    }
+    
+    
 }
