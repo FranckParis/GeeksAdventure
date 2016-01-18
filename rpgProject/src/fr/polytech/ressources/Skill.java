@@ -87,11 +87,13 @@ public class Skill {
     }
     
     public void useSkillCharState (Charact source, Charact target){
-        if(! target.isImmune()){
-            if(successTest(source)){
-                target.getCharStates().add(this.charState);
-            }
-        }  
+        if (this.charState != null) {
+            if (!target.isImmune()){
+                if (successTest(source)){
+                    target.getCharStates().add(this.charState);
+                }
+            }  
+        }
     }
     
     public void useSkillDamage (Charact source, Charact target){
