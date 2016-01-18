@@ -13,8 +13,9 @@ public class Nooby extends Charact {
     
     public Nooby(int pos){
         this.name = "Kevin";
-        this.maxHP = 150;
-        this.maxMP = 50;
+        this.maxHP = this.hp = 150;
+        this.maxMP = this.mp = 50;
+        
         this.position = pos;
         
         this.experience = new Experience();
@@ -43,19 +44,22 @@ public class Nooby extends Charact {
     public void initInventory() {
         this.inventory = new ArrayList<>();
         
-        Armor chaussettesSales = new Armor("Chaussettes sales",0,5,1,"Ca puuue !!");
-        this.inventory.add(chaussettesSales);
+        Armor batmanMask = new Armor("Masque de Batman",1,0,1,"Je suis la nuit.");
+        this.inventory.add(batmanMask);
+        
+        Armor metalSweatShirt = new Armor("Sweat Shirt de Metal",3,1,3,"Parce que YEAAAAHHHHHH.");
+        this.inventory.add(metalSweatShirt);
+        
+        Armor kitchenGloves = new Armor("Gants de cuisine",1,2,1,"Evite de se brûler. Mais c'est tout.");
+        this.inventory.add(kitchenGloves);
+        
+        Armor oldJeans = new Armor("Jeans troués",2,3,2,"Un classique.");
+        this.inventory.add(oldJeans);
+        
+        Armor oldBaskets = new Armor("Vieilles baskets",2,4,2,"Elle prennent l'eau.");
+        this.inventory.add(oldBaskets);
+        
+        Weapon tableStick = new Weapon("Pied de table",6,4,2,"Ne coupe pas. Mais tabasse sévère");
+        this.inventory.add(oldBaskets);
     }
-    
-    /*
-    @Override
-    public int getMaxHp() {
-        return this.getHp() + this.abilityScores.getStrength() - 60;
-    }
-
-    @Override
-    public int getMaxMp() {
-        return this.getMp() + this.abilityScores.getIntel() - 10;
-    }
-    */
 }
