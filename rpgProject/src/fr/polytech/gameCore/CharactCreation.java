@@ -43,7 +43,7 @@ public class CharactCreation extends Event {
             p.displayString("Personnage " + i + "\n");
             p.displayString("Entrer le nom du personnage : ");
             String name = sc.nextLine();
-            p.displayString("Choisir votre classe :\n "
+            p.displayString("Choisir votre classe :\n"
                     + "1 : Nooby - Courageux et fier guerrier geek (Lien connexe - 'Leeroy Jenkins')\n"
                     + "2 : Troll - Lâche et mesquin voleur (travaille à la FNAC)\n"
                     + "3 : TryHarder - Puissant et intelligent mage (2.21 Gigowatts de puissance)\n");
