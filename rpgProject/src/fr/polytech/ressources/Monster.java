@@ -30,18 +30,23 @@ public class Monster extends Charact{
     public Action chooseAction(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
         // Target
         Dice dice = new Dice();
-        int nTarget = dice.roll(PC.size());
+        int nTarget;
+        do { // Do while because dice can return a max number
+            nTarget = dice.roll(PC.size());
+        } while(nTarget == PC.size());
         Charact target = PC.get(nTarget);
         
         // Skill
         int nSkill;
         Skill skill;
-        boolean enoughMana;
-        do {
+        while(true) {
             nSkill = dice.roll(skills.size());
-            skill = skills.get(nSkill);
-            enoughMana = skill.getMpCost() <= this.getMp();
-        } while(!enoughMana);
+            if (nSkill != skills.size()) {
+                skill = skills.get(nSkill);
+                if (skill.getMpCost() <= this.getMp())
+                    break;
+            }
+        }
         
         // Action
         Action action = new Action(this,skill,target);
