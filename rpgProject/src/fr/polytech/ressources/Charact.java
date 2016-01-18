@@ -147,36 +147,36 @@ public abstract class Charact {
         Action action = null;
         
         if ((!this.isDead()) && (!this.isStunned())) {
-                p.displayString("Choisir la compétence utilisée par " + this.getName() 
-                        + " :\n");
-                for (int j = 0; j < this.getSkills().size(); j++) {
-                    p.displayString(Integer.toString(j+1) + " : " + 
-                            this.getSkills().get(j).getName() + "\n");
-                }
-                skillChoice=sc.nextInt()-1;
-                
-                if (this.getSkills().get(skillChoice).getName().equals("Parade")) {
-                    targetChoice = this.getPosition();
-                }
-                else {
-                    p.displayString("Choisir la cible de " + 
-                            this.getSkills().get(skillChoice).getName() + 
-                            " utilisée par " + this.getName() + " :\n");
-                            groupToString(groupPC);
-                            groupToString(groupNPC);
-                    targetChoice = sc.nextInt()-1;
-                }
-                
-                if (targetChoice < groupPC.size()) {
-                    action = new Action(this,
-                            this.getSkills().get(skillChoice),
-                            groupPC.get(targetChoice));
-                }
-                else {
-                    action = new Action(this,
-                            this.getSkills().get(skillChoice),
-                            groupNPC.get(targetChoice-groupPC.size()));
-                }
+            p.displayString("Choisir la compétence utilisée par " + this.getName() 
+                    + " :\n");
+            for (int j = 0; j < this.getSkills().size(); j++) {
+                p.displayString(Integer.toString(j+1) + " : " + 
+                        this.getSkills().get(j).getName() + "\n");
+            }
+            skillChoice=sc.nextInt()-1;
+
+            if (this.getSkills().get(skillChoice).getName().equals("Parade")) {
+                targetChoice = this.getPosition();
+            }
+            else {
+                p.displayString("Choisir la cible de " + 
+                        this.getSkills().get(skillChoice).getName() + 
+                        " utilisée par " + this.getName() + " :\n");
+                        groupToString(groupPC);
+                        groupToString(groupNPC);
+                targetChoice = sc.nextInt()-1;
+            }
+
+            if (targetChoice < groupPC.size()) {
+                action = new Action(this,
+                        this.getSkills().get(skillChoice),
+                        groupPC.get(targetChoice));
+            }
+            else {
+                action = new Action(this,
+                        this.getSkills().get(skillChoice),
+                        groupNPC.get(targetChoice-groupPC.size()));
+            }
         }
         
         return action;
@@ -414,6 +414,6 @@ public abstract class Charact {
     }
                 
     public boolean isDead() {
-        return (this.hp <= 0);
+        return (this.hp >= 0);
     }
 }

@@ -45,7 +45,9 @@ public class Turn {
     
     private void chooseActions() {
         for (int i=0; i<groupPC.size(); i++) {
-            actions.add(groupPC.get(i).chooseAction(groupPC, groupNPC));
+            Charact charact = groupPC.get(i);
+            Action action = charact.chooseAction(groupPC, groupNPC);
+            actions.add(action);
         }
         for (int i=0; i<groupNPC.size(); i++) {
             Monster monster = (Monster)groupNPC.get(i);
