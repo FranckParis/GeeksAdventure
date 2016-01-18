@@ -38,12 +38,12 @@ public class Troll extends Charact {
         skills = new ArrayList<>();
         
         //Primary skills
-        this.skills.add(new Skill ("La Patate", 6, 2, 0, 0 ));
-        this.skills.add(new Skill ("La Parade", 0, 0, 0, new CharState("Parade", 5)));
+        this.skills.add(new Skill ("Plantage", 5, 3, 0, 0 ));
+        this.skills.add(new Skill ("J't'esquive", 0, 0, 0, new CharState("Parade", 5)));
                 
         //Specific skills
         this.skills.add(new Skill ("Backstab", 35, 10, 0));
-        this.skills.add(new Skill ("Bleed", 15, 1, 15, 0, new CharState("Saignement", 7, 0, 5)));
+        this.skills.add(new Skill ("J'te Bleed", 15, 1, 15, 0, new CharState("Saignement", 7, 0, 5)));
         this.skills.add(new Skill ("Combo-kill", 10, 7, 45, 0));
     }
 
@@ -56,20 +56,20 @@ public class Troll extends Charact {
         Armor skullBandana = new Armor("Bandana à crâne",1,0,1,"I KILL YOU!");
         this.inventory.add(skullBandana);
         
-        Armor capeTropDark = new Armor("Cape trop dark",3,1,3,"Incognito.");
+        Armor capeTropDark = new Armor("Cape trop dark",2,1,3,"Incognito.");
         this.inventory.add(capeTropDark);
         
-        Armor shabbyMittens = new Armor("Mittens miteuses",1,2,1,"+1 pour tenir son arme.");
+        Armor shabbyMittens = new Armor("Mittens miteuses",0,2,1,"+1 pour tenir son arme.");
         this.inventory.add(shabbyMittens);
         
-        Armor oldJeans = new Armor("Jeans troués",2,3,2,"Un classique.");
-        this.inventory.add(oldJeans);
+        Armor blackTights = new Armor("Collants noirs",1,3,1,"Et tu marches dans les ombres.");
+        this.inventory.add(blackTights);
         
-        Armor oldBaskets = new Armor("Vieilles baskets",2,4,2,"Elle prennent l'eau.");
-        this.inventory.add(oldBaskets);
+        Armor woolFlipflops = new Armor("Tongs en laine",0,4,1,"Ne jamais négliger le confort.");
+        this.inventory.add(woolFlipflops);
         
-        Weapon tableStick = new Weapon("Pied de table",6,4,2,"Ne coupe pas. Mais tabasse sévère");
-        this.inventory.add(oldBaskets);
+        Weapon rustyDagger = new Weapon("Dague rouillée",15,2,2,"Gare au Tétanos.");
+        this.inventory.add(rustyDagger);
         
     }
 
