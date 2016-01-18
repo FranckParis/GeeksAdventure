@@ -19,6 +19,7 @@ public class Nooby extends Charact {
         this.position = pos;
         
         this.experience = new Experience();
+        this.charStates = new ArrayList<>();
         
         this.abilityScores = new AbilityScores(60, 30, 10);
         initSkills();
