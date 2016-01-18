@@ -60,7 +60,7 @@ public class Fight extends Event {
         super.giveRewards();
         
         // loot
-        //TODO
+        // TODO
     }
 
 }
