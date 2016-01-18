@@ -357,9 +357,11 @@ public abstract class Charact {
     
     public boolean isImmune(){
         boolean immune = false;
-        for(int i =0; i<charStates.size(); i++){
-            if(charStates.get(i).isImmune()){
-                immune = true;
+        if (!charStates.isEmpty()) {
+            for(int i =0; i<charStates.size(); i++){
+                if(charStates.get(i).isImmune()){
+                    immune = true;
+                }
             }
         }
         return immune;
@@ -367,9 +369,13 @@ public abstract class Charact {
     
     public boolean isStunned(){
         boolean stunned = false;
-        for(int i =0; i<charStates.size(); i++){
-            if(charStates.get(i).isStunned()){
-                stunned = true;
+        
+        if (!charStates.isEmpty()) {
+            for(int i =0; i<charStates.size(); i++){
+
+                if(charStates.get(i).isStunned()){
+                    stunned = true;
+                }
             }
         }
         return stunned;
