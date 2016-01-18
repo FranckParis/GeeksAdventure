@@ -26,6 +26,8 @@ public class Nooby extends Charact {
     @Override
     public void initSkills() {
         
+        skills = new ArrayList<>();
+        
         //Primary skills
         this.skills.add(new Skill ("La Patate", 6, 2, 0, 0 ));
         this.skills.add(new Skill ("La Parade", 0, 0, 0, new CharState("Parade", 5)));
