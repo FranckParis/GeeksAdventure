@@ -414,6 +414,6 @@ public abstract class Charact {
     }
                 
     public boolean isDead() {
-        return (this.hp >= 0);
+        return (this.hp <= 0);
     }
 }
