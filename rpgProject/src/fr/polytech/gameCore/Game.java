@@ -43,7 +43,10 @@ public class Game {
 "                                                                                ");
   
         
-        p.displayString("Bienvenue dans Geek Adventures !\n");
+        p.displayString("Bienvenue dans Geek Adventures v 0.00000001 !\n\n");
+        p.displayString("Attention : Early Access - ce contenu ne constitue pas la version finale du jeu et n'est pas "
+                + "représentatif de ses objectifs de qualité.\n");
+        
         p.displayString("1 - Nouvelle partie \n"
                         + "2 - Quitter \n");
         

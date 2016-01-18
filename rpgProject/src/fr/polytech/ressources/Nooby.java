@@ -47,20 +47,26 @@ public class Nooby extends Charact {
         
         Armor batmanMask = new Armor("Masque de Batman",1,0,1,"Je suis la nuit.");
         this.inventory.add(batmanMask);
+        this.equipItem(batmanMask);
         
         Armor metalSweatShirt = new Armor("Sweat Shirt de Metal",3,1,3,"Parce que YEAAAAHHHHHH.");
         this.inventory.add(metalSweatShirt);
+        this.equipItem(metalSweatShirt);
         
         Armor kitchenGloves = new Armor("Gants de cuisine",1,2,1,"Evite de se brûler. Mais c'est tout.");
         this.inventory.add(kitchenGloves);
+        this.equipItem(kitchenGloves);
         
         Armor oldJeans = new Armor("Jeans troués",2,3,2,"Un classique.");
         this.inventory.add(oldJeans);
+        this.equipItem(oldJeans);
         
         Armor oldBaskets = new Armor("Vieilles baskets",2,4,2,"Elle prennent l'eau.");
         this.inventory.add(oldBaskets);
+        this.equipItem(oldBaskets);
         
         Weapon tableStick = new Weapon("Pied de table",6,4,2,"Ne coupe pas. Mais tabasse sévère");
-        this.inventory.add(oldBaskets);
+        this.inventory.add(tableStick);
+        this.equipItem(tableStick);
     }
 }

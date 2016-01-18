@@ -162,8 +162,8 @@ public abstract class Charact {
                 p.displayString("Choisir la cible de " + 
                         this.getSkills().get(skillChoice).getName() + 
                         " utilisée par " + this.getName() + " :\n");
-                        groupToString(groupPC);
-                        groupToString(groupNPC);
+                        p.displayString(groupToString(groupPC));
+                        p.displayString(groupToString(groupNPC));
                 targetChoice = sc.nextInt()-1;
             }
 
@@ -201,7 +201,7 @@ public abstract class Charact {
         for (int i=0; i<group.size(); i++) {
             message += i + " - " + group.get(i).getName() + " \n" + group.get(i).getHp() + "/"
                     + group.get(i).getMaxHp() + " hp \n" + group.get(i).getMp() + 
-                    "/" + group.get(i).getMaxMp() +"\n";
+                    "/" + group.get(i).getMaxMp() + " mp \n";
         }
         
         return message;
