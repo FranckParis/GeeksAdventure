@@ -53,5 +53,14 @@ public class Fight extends Event {
             // succeed
         }
     }
+    
+    @Override
+    public void giveRewards() {
+        // xp
+        super.giveRewards();
+        
+        // loot
+        //TODO
+    }
 
 }

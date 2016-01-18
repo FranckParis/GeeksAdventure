@@ -236,6 +236,11 @@ public abstract class Charact {
         return message;
     }
     
+    // Experience
+    public void addXp (int xp){
+        this.experience.addXp(xp);
+    }
+    
     public void checkLevelUp(){
         Printer p = new Printer();
         Scanner sc = new Scanner(System.in);

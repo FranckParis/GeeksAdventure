@@ -24,6 +24,7 @@ public abstract class Event {
         this.groupPC = groupPC;
         chooseActions();
         resolveActions();
+        giveRewards();
     }
     
     public abstract void chooseActions();
@@ -38,6 +39,13 @@ public abstract class Event {
         }
         
         return nbDead == groupPC.size();
+    }
+    
+    public void giveRewards() {
+        // xp
+        for (int i=0;i<groupPC.size(); i++) {
+            groupPC.get(i).addXp(rewardXP);
+        }
     }
     
     // Getters
