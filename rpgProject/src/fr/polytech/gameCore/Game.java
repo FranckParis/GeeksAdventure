@@ -8,6 +8,7 @@ package fr.polytech.gameCore;
 import fr.polytech.persistence.Data;
 import fr.polytech.ressources.Charact;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -30,21 +31,49 @@ public class Game {
     public void start() {
         // The game begins here
         // Characters creation
-        CharactCreation charactCreation = new CharactCreation();
-        groupPC = charactCreation.start();
+        Scanner sc = new Scanner(System.in);
+        Printer p = new Printer(); 
         
-        // Send groupPC to Data and get events list
-        data = new Data(groupPC);
-        events = data.getEvents();
         
-        // others events
-        for (int i=0; i<events.size(); i++) {
-            events.get(i).start(groupPC);
+        p.displayString("   ______          __      ___       __                 __                      \n" +
+"  / ____/__  ___  / /__   /   | ____/ /   _____  ____  / /___  __________  _____\n" +
+" / / __/ _ \\/ _ \\/ //_/  / /| |/ __  / | / / _ \\/ __ \\/ __/ / / / ___/ _ \\/ ___/\n" +
+"/ /_/ /  __/  __/ ,<    / ___ / /_/ /| |/ /  __/ / / / /_/ /_/ / /  /  __(__  ) \n" +
+"\\____/\\___/\\___/_/|_|  /_/  |_\\__,_/ |___/\\___/_/ /_/\\__/\\__,_/_/   \\___/____/  \n" +
+"                                                                                ");
+  
+        
+        p.displayString("Bienvenue dans Geek Adventures !\n");
+        p.displayString("1 - Nouvelle partie \n"
+                        + "2 - Quitter \n");
+        
+        int menuChoice = Integer.parseInt(sc.nextLine());
+        
+        switch(menuChoice) {
+            case 1:
+                CharactCreation charactCreation = new CharactCreation();
+                groupPC = charactCreation.start();
+        
+                // Send groupPC to Data and get events list
+                data = new Data(groupPC);
+                events = data.getEvents();
+        
+                // others events
+                for (int i=0; i<events.size(); i++) {
+                    events.get(i).start(groupPC);
+                }
+        
+                p.displayString("Fin du jeu ! Vous avez fait les courses, bravo !");
+            break;
+                
+            case 2:
+                 p.displayString("Merci d'avoir au moins lancé le jeu. Non, vraiment.");
+            break;
+                
+            case 42:
+                 p.displayString("Vous avez cru au CheatCode hein ?");
+            break;
         }
-        
-        Printer p = new Printer();
-        p.displayString("Fin du jeu ! Vous avez fait les courses, bravo !");
-        
     }
     
     // Getters
