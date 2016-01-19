@@ -67,6 +67,8 @@ public class Turn {
     }
     
     private void resolveTurn() {
+        Printer p = new Printer();
+        p.displayString("\nRecap du tour");
         for (int i = 0; i<this.actions.size(); i++) {
             this.actions.get(i).getSkill().useSkillCharState(this.actions.get(i).getSource(),
                     this.actions.get(i).getTarget());
@@ -80,7 +82,9 @@ public class Turn {
         for (int i = 0; i<this.actions.size(); i++) {
             this.actions.get(i).getSkill().useSkillDamage(this.actions.get(i).getSource()
                     , this.actions.get(i).getTarget());
-            actions.toString();
+            
+            String action = actions.get(i).toString();
+            p.displayString(action);
         }
     }
 }

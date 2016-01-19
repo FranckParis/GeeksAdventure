@@ -5,7 +5,6 @@
  */
 package fr.polytech.events;
 
-import fr.polytech.events.Event;
 import fr.polytech.gameCore.Printer;
 import fr.polytech.ressources.*;
 import java.util.ArrayList;

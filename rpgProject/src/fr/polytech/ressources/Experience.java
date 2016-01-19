@@ -9,7 +9,7 @@ package fr.polytech.ressources;
  *
  * @author Francky
  */
-class Experience {
+public class Experience {
 
     //Attributes
     int xpPoints;

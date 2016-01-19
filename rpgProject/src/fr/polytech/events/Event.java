@@ -41,6 +41,16 @@ public abstract class Event {
         return nbDead == groupPC.size();
     }
     
+    public boolean allNPCDead(ArrayList<Charact> groupNPC) {
+        int nbDead = 0;
+        for (int i=0; i<groupNPC.size(); i++) {
+            if (groupNPC.get(i).getHp() < 0)
+                nbDead ++; 
+        }
+        
+        return nbDead == groupPC.size();
+    }
+    
     public void giveRewards() {
         // xp
         for (int i=0;i<groupPC.size(); i++) {

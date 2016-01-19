@@ -167,7 +167,7 @@ public abstract class Charact {
                         " utilisée par " + this.getName() + " :\n");
                         p.displayString(groupToString(groupPC, 0));
                         p.displayString(groupToString(groupNPC, groupPC.size()));
-                targetChoice = sc.nextInt()-1;
+                targetChoice = sc.nextInt();
             }
 
             if (targetChoice < groupPC.size()) {
@@ -292,10 +292,20 @@ public abstract class Charact {
     
     // getters
     public int getTotalArmor() {
-        return this.getArmorClass() + this.getArmorBuff() + 
-                this.getHelmet().getArmorClass() +this.getPlackart().getArmorClass() +
-                this.getGauntlet().getArmorClass() +this.getTrousers().getArmorClass() +
-                this.getBoots().getArmorClass();
+        int totalArmor = 0;
+        totalArmor += this.getArmorClass() + this.getArmorBuff();
+        if (this.getHelmet() != null)
+            totalArmor += this.getHelmet().getArmorClass();
+        if (this.getPlackart() != null)
+            totalArmor += this.getPlackart().getArmorClass();
+        if (this.getGauntlet() != null)
+            totalArmor += this.getGauntlet().getArmorClass();
+        if (this.getTrousers() != null)
+            totalArmor += this.getTrousers().getArmorClass();
+        if (this.getBoots() != null)
+            totalArmor += this.getBoots().getArmorClass();
+        
+        return totalArmor;
     }
     
     public int getMaxHp() {
@@ -412,6 +422,22 @@ public abstract class Charact {
     
     // Setters
 
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
+    public void setMaxMP(int maxMP) {
+        this.maxMP = maxMP;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setMp(int mp) {
+        this.mp = mp;
+    }
+    
     public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }

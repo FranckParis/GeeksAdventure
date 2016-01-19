@@ -7,8 +7,8 @@ package fr.polytech.persistence;
 
 import fr.polytech.events.TextEvent;
 import fr.polytech.events.Event;
+import fr.polytech.events.Fight;
 import java.util.ArrayList;
-import fr.polytech.gameCore.*;
 import fr.polytech.ressources.AbilityScores;
 import fr.polytech.ressources.Charact;
 import fr.polytech.ressources.Item;
@@ -63,10 +63,10 @@ public final class Data {
     
     public void initFight1() {
         ArrayList<Skill> skills1 = new ArrayList<>();
-        skills1.add(new Skill("Crachat", 8, 0, 1));
+        skills1.add(new Skill("Crachat", 8, 4, 0, 1));
         
         ArrayList<Skill> skills2 = new ArrayList<>();
-        skills2.add(new Skill("Chanpignons", 10, 0, 2));
+        skills2.add(new Skill("Chanpignons", 10, 4, 0, 2));
         
         Monster monster1 = new Monster("Coca moisi", 1, 40, 0, 
             new AbilityScores(50,50,50), skills1, null);

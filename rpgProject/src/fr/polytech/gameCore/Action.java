@@ -32,10 +32,17 @@ public class Action {
     @Override
     public String toString() {
         String message = source.getName() + " utilise " + skill.getName() + ". ";
-        message += "";
-        if (skill.getDiceValue() != 0) {
-            message += source.getName() + " inflige " + skill.getTotalDamage() + " à "
-                    + target.getName() + ".";
+        
+        if (!skill.isSuccess()) 
+            message += "Echec du skill ! Omg sale nooby !";
+        else {
+            if (skill.getDiceValue() != 0) {
+                int armorTarget = skill.getTotalDamage() - skill.getTotalDamageWithoutArmor();
+                
+                message += source.getName() + " inflige " + skill.getTotalDamage() + "("
+                        + skill.getTotalDamageWithoutArmor() + "-" + armorTarget + ") dégats à "
+                        + target.getName() + ".";
+            }
         }
         
         return message;

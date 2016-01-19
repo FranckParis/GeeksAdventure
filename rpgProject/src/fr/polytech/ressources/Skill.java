@@ -20,7 +20,9 @@ public class Skill {
     private int diceValue;
     private int mpCost;
     private int totalDamage;
+    private int totalDamageWithoutArmor;
     private CharState charState;
+    private boolean success;
     
     //Constructors
     
@@ -85,7 +87,8 @@ public class Skill {
             case 2:
                 success = source.getAbilityScores().abilityTestIntel();
         }
-       return success;
+        this.success = true;
+        return success;
     }
     
     public void useSkillCharState (Charact source, Charact target){
@@ -103,19 +106,29 @@ public class Skill {
             int weaponDamage = 0;
             Weapon weapon = source.getWeapon();
             Dice dice = new Dice();
-            for (int i=0; i<weapon.getNbDice(); i++) {
-                weaponDamage += dice.roll(weapon.getDamageDice());
+            if (weapon != null) {
+                for (int i=0; i<weapon.getNbDice(); i++) {
+                    weaponDamage += dice.roll(weapon.getDamageDice());
+                }
             }
+            
             int skillDamage = 0;
             for (int i=0; i<this.nbDices; i++) {
                 skillDamage += dice.roll(this.diceValue);
             }
             int damage = skillDamage + weaponDamage;
             int armor = target.getTotalArmor();
-            target.hp -= (damage - armor);
-            source.mp -= this.mpCost;
             
-            this.totalDamage = damage - armor;
+            // test negative damage
+            if (damage - armor < 0)
+                this.totalDamage = damage - armor;
+            else
+                this.totalDamage = damage - armor;
+            
+            this.totalDamageWithoutArmor = damage;
+            
+            target.setHp(target.getHp() - totalDamage);
+            source.setMp(source.getMp() - this.mpCost);
         }
     }
 
@@ -145,6 +158,14 @@ public class Skill {
 
     public int getTotalDamage() {
         return totalDamage;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public int getTotalDamageWithoutArmor() {
+        return totalDamageWithoutArmor;
     }
     
     

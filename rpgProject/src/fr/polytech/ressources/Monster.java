@@ -26,6 +26,7 @@ public class Monster extends Charact{
         this.abilityScores = stats;
         this.skills = skills;
         this.inventory = inventory;
+        this.charStates = new ArrayList<>();
     }
 
     @Override

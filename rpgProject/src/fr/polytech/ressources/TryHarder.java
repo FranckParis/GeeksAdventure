@@ -38,7 +38,7 @@ public class TryHarder extends Charact {
         skills = new ArrayList<>();
         
         //Primary skills
-        this.skills.add(new Skill ("Le retour du baton !", 8, 2, 0, 2));
+        this.skills.add(new Skill ("Le retour du baton !", 10, 2, 0, 2));
         this.skills.add(new Skill ("La Parade", 0, 0, 2, new CharState("Parade", 4)));
                 
         //Specific skills

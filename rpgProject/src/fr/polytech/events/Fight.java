@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.polytech.gameCore;
+package fr.polytech.events;
 
-import fr.polytech.events.Event;
+import fr.polytech.gameCore.Turn;
 import fr.polytech.ressources.Charact;
 import fr.polytech.ressources.Item;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class Fight extends Event {
     public void chooseActions() {
         // turn begins
         int nbTurn = 0;
-        while(!allPCDead()) {
+        while(!allPCDead() || !allNPCDead(groupNPC)) {
             nbTurn ++;
             this.turn = new Turn(groupPC, groupNPC);
             turn.start(nbTurn);

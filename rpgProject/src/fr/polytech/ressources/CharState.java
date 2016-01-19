@@ -9,7 +9,7 @@ package fr.polytech.ressources;
  *
  * @author Francky
  */
-class CharState {
+public class CharState {
     
     //Attributes
     private String name;
