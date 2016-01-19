@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.polytech.gameCore;
+package fr.polytech.events;
 
+import fr.polytech.events.Event;
+import fr.polytech.gameCore.Printer;
 import fr.polytech.ressources.*;
 import java.util.ArrayList;
 import java.util.Scanner;

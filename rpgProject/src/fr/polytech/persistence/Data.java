@@ -5,6 +5,8 @@
  */
 package fr.polytech.persistence;
 
+import fr.polytech.events.TextEvent;
+import fr.polytech.events.Event;
 import java.util.ArrayList;
 import fr.polytech.gameCore.*;
 import fr.polytech.ressources.AbilityScores;

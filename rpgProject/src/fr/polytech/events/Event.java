@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.polytech.gameCore;
+package fr.polytech.events;
 
 import fr.polytech.ressources.Charact;
 import java.util.ArrayList;

@@ -5,6 +5,7 @@
  */
 package fr.polytech.gameCore;
 
+import fr.polytech.events.Event;
 import fr.polytech.ressources.Charact;
 import fr.polytech.ressources.Item;
 import java.util.ArrayList;

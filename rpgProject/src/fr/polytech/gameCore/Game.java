@@ -5,6 +5,8 @@
  */
 package fr.polytech.gameCore;
 
+import fr.polytech.events.CharactCreation;
+import fr.polytech.events.Event;
 import fr.polytech.persistence.Data;
 import fr.polytech.ressources.Charact;
 import java.util.ArrayList;
