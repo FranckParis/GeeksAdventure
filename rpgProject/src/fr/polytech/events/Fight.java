@@ -37,9 +37,11 @@ public class Fight extends Event {
     @Override
     public void chooseActions() {
         // turn begins
+        int nbTurn = 0;
         while(!allPCDead()) {
+            nbTurn ++;
             this.turn = new Turn(groupPC, groupNPC);
-            turn.start();
+            turn.start(nbTurn);
         }
     }
     

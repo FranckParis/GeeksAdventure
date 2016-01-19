@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public class Turn {
     // Attributes
+    private int nbTurn;
     private ArrayList<Action> actions;
     
     private ArrayList<Charact> groupNPC;
@@ -31,8 +32,10 @@ public class Turn {
     
     // Methods
     
-    public void start() {
+    public void start(int nb) {
+        this.nbTurn = nb;
         initArmorBuff();
+        displayNbTurn();
         chooseActions();
         resolveTurn();
     }
@@ -41,6 +44,14 @@ public class Turn {
         for (int i=0; i<groupPC.size(); i++) {
             groupPC.get(i).setArmorBuff(0);
         }
+    }
+    
+    public void displayNbTurn() {
+        Printer p = new Printer();
+        String string = "\n----------------------------------------------------\n"
+                      + "-------------------- Tour " + nbTurn + "-------------------------\n"
+                      + "----------------------------------------------------";
+        p.displayString(string);
     }
     
     private void chooseActions() {
@@ -69,6 +80,7 @@ public class Turn {
         for (int i = 0; i<this.actions.size(); i++) {
             this.actions.get(i).getSkill().useSkillDamage(this.actions.get(i).getSource()
                     , this.actions.get(i).getTarget());
+            actions.toString();
         }
     }
 }

@@ -42,7 +42,7 @@ public final class Data {
         initText1();
         
         // First fight
-        initCombat1();
+        initFight1();
         
         // Second fight
     }
@@ -61,7 +61,7 @@ public final class Data {
         events.add(textEvent1);
     }
     
-    public void initCombat1() {
+    public void initFight1() {
         ArrayList<Skill> skills1 = new ArrayList<>();
         skills1.add(new Skill("Crachat", 8, 0, 1));
         

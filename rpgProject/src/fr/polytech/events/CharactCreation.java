@@ -42,13 +42,17 @@ public class CharactCreation extends Event {
         p.displayString("Création de l'équipe :\n");
         
         for(int i = 0; i<3; i++){
-            p.displayString("Personnage " + i + "\n");
+            int nb = i + 1;
+            p.displayString("\nPersonnage " + nb + "\n");
             p.displayString("Entrer le nom du personnage : ");
             String name = sc.nextLine();
             p.displayString("Choisir votre classe :\n"
                     + "1 : Nooby - Courageux et fier guerrier geek (Lien connexe - 'Leeroy Jenkins')\n"
+                    + "    Stats de départ : 150HP 50MP\n"
                     + "2 : Troll - Lâche et mesquin voleur (travaille à la FNAC)\n"
-                    + "3 : TryHarder - Puissant et intelligent mage (2.21 Gigowatts de puissance)\n");
+                    + "    Stats de départ : 120HP 80MP\n"
+                    + "3 : TryHarder - Puissant et intelligent mage (2.21 Gigowatts de puissance)\n"
+                    + "    Stats de départ : 75HP 150MP\n");
             try{
                 int classChoice = Integer.parseInt(sc.nextLine());
             

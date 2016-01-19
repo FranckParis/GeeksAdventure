@@ -19,7 +19,9 @@ public class Monster extends Charact{
             ArrayList<Skill> skills, ArrayList<Item> inventory){
         this.name = name;
         this.maxHP = HP;
+        this.hp = HP;
         this.maxMP = MP;
+        this.mp = mp;
         
         this.abilityScores = stats;
         this.skills = skills;

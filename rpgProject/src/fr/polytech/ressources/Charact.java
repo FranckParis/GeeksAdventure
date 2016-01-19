@@ -108,26 +108,29 @@ public abstract class Charact {
     
     // States
     public void applyCharStates(){
-        ArrayList <Integer> toDelete = new ArrayList();
+        ArrayList <CharState> toDelete = new ArrayList<>();
         
-        for(int i = 0; i<charStates.size(); i++){
-            if (charStates.get(i).charStateIsOver()){
-                toDelete.add(i);
+        if (!charStates.isEmpty()) {
+            for(int i = 0; i<charStates.size(); i++){
+                if (charStates.get(i).charStateIsOver()){
+                    toDelete.add(this.charStates.get(i));
+                }
+                else{
+                    this.charStates.get(i).decrementNbTurns();
+                    this.hp -= charStates.get(i).getHpVal();
+                    this.mp -= charStates.get(i).getMpVal();
+                    this.armorBuff += charStates.get(i).getArmorVal();
+                }
+
             }
-            else{
-                this.charStates.get(i).decrementNbTurns();
-                this.hp -= charStates.get(i).getHpVal();
-                this.mp -= charStates.get(i).getMpVal();
-                this.armorBuff += charStates.get(i).getArmorVal();
-            }
-            
+            if (!toDelete.isEmpty())
+                removeCharState(toDelete);
         }
-        removeCharState(toDelete);
     }
 
-    public void removeCharState(ArrayList <Integer> toDelete){
+    public void removeCharState(ArrayList<CharState> toDelete){
         for (int i=toDelete.size(); i>=0; i--) {
-            this.charStates.remove(i);
+            this.charStates.remove(toDelete.get(i));
         }
     }
     
@@ -162,8 +165,8 @@ public abstract class Charact {
                 p.displayString("Choisir la cible de " + 
                         this.getSkills().get(skillChoice).getName() + 
                         " utilisée par " + this.getName() + " :\n");
-                        p.displayString(groupToString(groupPC));
-                        p.displayString(groupToString(groupNPC));
+                        p.displayString(groupToString(groupPC, 0));
+                        p.displayString(groupToString(groupNPC, groupPC.size()));
                 targetChoice = sc.nextInt()-1;
             }
 
@@ -195,11 +198,13 @@ public abstract class Charact {
     }
     
     // toString
-    public String groupToString(ArrayList<Charact> group) {
+    public String groupToString(ArrayList<Charact> group, int firstIndex) {
         String message = "";
         
+        int nb;
         for (int i=0; i<group.size(); i++) {
-            message += i + " - " + group.get(i).getName() + " \n" + group.get(i).getHp() + "/"
+            nb = firstIndex + i;
+            message += nb + " - " + group.get(i).getName() + " \n" + group.get(i).getHp() + "/"
                     + group.get(i).getMaxHp() + " hp \n" + group.get(i).getMp() + 
                     "/" + group.get(i).getMaxMp() + " mp \n";
         }

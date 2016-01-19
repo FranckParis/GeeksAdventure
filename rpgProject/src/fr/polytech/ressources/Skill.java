@@ -19,6 +19,7 @@ public class Skill {
     private int nbDices;
     private int diceValue;
     private int mpCost;
+    private int totalDamage;
     private CharState charState;
     
     //Constructors
@@ -65,6 +66,7 @@ public class Skill {
         this.assocStat = asStat;
         this.nbDices = nb;
         this.charState = charS;
+        this.totalDamage = 0;
     }
     
    
@@ -112,6 +114,8 @@ public class Skill {
             int armor = target.getTotalArmor();
             target.hp -= (damage - armor);
             source.mp -= this.mpCost;
+            
+            this.totalDamage = damage - armor;
         }
     }
 
@@ -137,6 +141,10 @@ public class Skill {
 
     public CharState getCharState() {
         return charState;
+    }
+
+    public int getTotalDamage() {
+        return totalDamage;
     }
     
     

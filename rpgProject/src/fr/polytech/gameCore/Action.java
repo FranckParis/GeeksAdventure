@@ -29,7 +29,17 @@ public class Action {
     }
     
     // Methods
-    
+    @Override
+    public String toString() {
+        String message = source.getName() + " utilise " + skill.getName() + ". ";
+        message += "";
+        if (skill.getDiceValue() != 0) {
+            message += source.getName() + " inflige " + skill.getTotalDamage() + " à "
+                    + target.getName() + ".";
+        }
+        
+        return message;
+    }
     
     // Getters
 
