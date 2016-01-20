@@ -40,7 +40,7 @@ public class Action {
                 int armorTarget = skill.getTotalDamage() - skill.getTotalDamageWithoutArmor();
                 
                 message += source.getName() + " inflige " + skill.getTotalDamage() + "("
-                        + skill.getTotalDamageWithoutArmor() + "-" + armorTarget + ") dégats à "
+                        + skill.getTotalDamageWithoutArmor() + "-" + target.getTotalArmor() + ") dégats à "
                         + target.getName() + ".";
             }
         }

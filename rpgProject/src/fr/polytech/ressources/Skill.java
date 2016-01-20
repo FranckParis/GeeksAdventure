@@ -78,17 +78,17 @@ public class Skill {
     public boolean successTest(Charact source) {
         // jet dé
         
-        boolean success = false;
+        boolean successTest = false;
         switch(this.assocStat){
             case 0:
-                success = source.getAbilityScores().abilityTestStrength();
+                successTest = source.getAbilityScores().abilityTestStrength();
             case 1:
-                success = source.getAbilityScores().abilityTestDexterity();
+                successTest = source.getAbilityScores().abilityTestDexterity();
             case 2:
-                success = source.getAbilityScores().abilityTestIntel();
+                successTest = source.getAbilityScores().abilityTestIntel();
         }
-        this.success = true;
-        return success;
+        this.success = successTest;
+        return successTest;
     }
     
     public void useSkillCharState (Charact source, Charact target){
@@ -117,15 +117,14 @@ public class Skill {
                 skillDamage += dice.roll(this.diceValue);
             }
             int damage = skillDamage + weaponDamage;
+            this.totalDamageWithoutArmor = damage;
             int armor = target.getTotalArmor();
             
             // test negative damage
             if (damage - armor < 0)
-                this.totalDamage = damage - armor;
+                this.totalDamage = 0;
             else
                 this.totalDamage = damage - armor;
-            
-            this.totalDamageWithoutArmor = damage;
             
             target.setHp(target.getHp() - totalDamage);
             source.setMp(source.getMp() - this.mpCost);
