@@ -32,7 +32,7 @@ public class Nooby extends Charact {
         skills = new ArrayList<>();
         
         //Primary skills2
-        this.skills.add(new Skill ("La Patate", 8, 2, 0, 0 ));
+        this.skills.add(new Skill ("La Patate", 8, 2, 0, 0));
         this.skills.add(new Skill ("La Parade", 0, 0, 0, new CharState("Parade", 5)));
                 
         //Specific skills

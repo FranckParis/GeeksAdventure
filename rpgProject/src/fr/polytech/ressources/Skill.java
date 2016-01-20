@@ -77,15 +77,17 @@ public class Skill {
     
     public boolean successTest(Charact source) {
         // jet dé
-        
         boolean successTest = false;
         switch(this.assocStat){
             case 0:
                 successTest = source.getAbilityScores().abilityTestStrength();
+                break;
             case 1:
                 successTest = source.getAbilityScores().abilityTestDexterity();
+                break;
             case 2:
                 successTest = source.getAbilityScores().abilityTestIntel();
+                break;
         }
         this.success = successTest;
         return successTest;
@@ -97,7 +99,7 @@ public class Skill {
                 if (successTest(source)){
                     target.getCharStates().add(this.charState);
                 }
-            }  
+            }
         }
     }
     
