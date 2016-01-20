@@ -51,6 +51,10 @@ public class Armor extends Item {
     
     // Methods
     
+    /**
+     * Display the armor type and the armor class of the armor
+     * @return 
+     */
     @Override
     public String toString() {
         String message = super.toString();

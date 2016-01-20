@@ -25,6 +25,17 @@ public class CharState {
     
     //Constructors 
     
+    /**
+     * basic attack
+     * @param n
+     * @param hp
+     * @param mp
+     * @param armv
+     * @param nbT
+     * @param stunned
+     * @param immune
+     * @param invisible 
+     */
     public CharState(String n, int hp, int mp, int armv, int nbT, 
             boolean stunned, boolean immune, boolean invisible){
         this.name = n;
@@ -37,23 +48,43 @@ public class CharState {
         this.invisible = invisible;
     }
     
-    //Blocking
+    
+    /**
+     * Blocking
+     * @param n
+     * @param armv 
+     */
     public CharState(String n, int armv){
         this(n, 0, 0, armv, 1, false, false, false);
     }
     
-    //Armor buff, debuff
+    /**
+     * Armor buff, debuff
+     * @param n
+     * @param armv
+     * @param nb 
+     */
     public CharState(String n, int armv, int nb){
         this(n, 0, 0, armv, nb, false, false, false);
     }
     
-    //Damage over time, heal
+    /**
+     * Damage over time, heal
+     * @param n
+     * @param hp
+     * @param mp
+     * @param nb 
+     */
     public CharState(String n, int hp, int mp, int nb){
         this(n, hp, mp, 0, nb, false, false, false);
     }
     
     // Methods 
     
+    /**
+     * Display the whole CharState
+     * @return 
+     */
     @Override
     public String toString() {
         String message = "";
@@ -89,6 +120,10 @@ public class CharState {
       return message;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public boolean charStateIsOver(){
         if (nbTurns == 0){
             return true;

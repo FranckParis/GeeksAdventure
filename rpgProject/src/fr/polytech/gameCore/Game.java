@@ -30,6 +30,9 @@ public class Game {
     }
     
     // methods
+    /**
+     * Launch the game
+     */
     public void start() {
         // The game begins here
         // Characters creation

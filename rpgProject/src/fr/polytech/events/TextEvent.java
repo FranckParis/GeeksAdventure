@@ -24,6 +24,10 @@ public class TextEvent extends Event {
     
     //Methods
     
+    /**
+     * Start the event
+     * @param groupPC 
+     */
     @Override
     public void start(ArrayList<Charact> groupPC){
         Printer p = new Printer();

@@ -20,18 +20,29 @@ public class CharactCreation extends Event {
     private ArrayList<Charact> groupPC;
     
     //Constructor
+    /**
+     * Constructor
+     */
     public CharactCreation() {
         this.name = "Création de personnages";
         this.text = "Menu de création de personnage";
     }   
     
     //Methods
+    /**
+     * Start the event to create 3 Characters
+     * @return ArrayList<Charact> groupPC
+     */
     public ArrayList<Charact> start() {
         this.groupPC = selectionMenu();
         
         return groupPC;
     }
     
+    /**
+     * Create a menu to choose character names and class
+     * @return ArrayList<Charact> groupPC
+     */
     public ArrayList<Charact> selectionMenu(){
         
         ArrayList<Charact> charList = new ArrayList<>();

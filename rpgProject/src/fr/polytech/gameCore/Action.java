@@ -22,6 +22,12 @@ public class Action {
     
     
     // Constructor
+    /**
+     * 
+     * @param source
+     * @param skill
+     * @param target 
+     */
     public Action(Charact source, Skill skill, Charact target) {
         this.source = source;
         this.target = target;
@@ -29,6 +35,11 @@ public class Action {
     }
     
     // Methods
+    
+    /**
+     * Return a sting to display the action. Not fully done yet.
+     * @return 
+     */
     @Override
     public String toString() {
         String message = source.getName() + " utilise " + skill.getName() + ". ";

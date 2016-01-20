@@ -23,6 +23,15 @@ public class Fight extends Event {
     private ArrayList<Item> loot;
     
     // Constructor
+    /**
+     * 
+     * @param groupPC
+     * @param groupNPC
+     * @param name
+     * @param text
+     * @param loot
+     * @param rewardXP 
+     */
     public Fight(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC, String name,
             String text, ArrayList<Item> loot, int rewardXP) {
         this.groupPC = groupPC;
@@ -34,6 +43,9 @@ public class Fight extends Event {
     }
     
     // Methods
+    /**
+     * Make the Characters choose their actions
+     */
     @Override
     public void chooseActions() {
         // turn begins
@@ -46,7 +58,9 @@ public class Fight extends Event {
     }
     
     
-    
+    /**
+     * Nothing here
+     */
     @Override
     public void resolveActions() {
         if (allPCDead()) {
@@ -57,6 +71,9 @@ public class Fight extends Event {
         }
     }
     
+    /**
+     * Give exp points and loot to PCs. Yet to implent
+     */
     @Override
     public void giveRewards() {
         // xp

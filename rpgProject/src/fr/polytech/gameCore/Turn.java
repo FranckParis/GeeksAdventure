@@ -23,6 +23,11 @@ public class Turn {
     private ArrayList<Charact> groupPC;
     
     // Constructor
+    /**
+     * 
+     * @param PC
+     * @param NPC 
+     */
     public Turn(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
         this.groupNPC = NPC;
         this.groupPC = PC;
@@ -31,7 +36,10 @@ public class Turn {
     }
     
     // Methods
-    
+    /**
+     * Start the turn
+     * @param nb 
+     */
     public void start(int nb) {
         this.nbTurn = nb;
         initArmorBuff();
@@ -40,12 +48,21 @@ public class Turn {
         resolveTurn();
     }
     
+    /**
+     * Set the armor buff of all PC and NPC to 0
+     */
     public void initArmorBuff() {
         for (int i=0; i<groupPC.size(); i++) {
             groupPC.get(i).setArmorBuff(0);
         }
+        for (int i=0; i<groupNPC.size(); i++) {
+            groupNPC.get(i).setArmorBuff(0);
+        }
     }
     
+    /**
+     * Display actual number of turns
+     */
     public void displayNbTurn() {
         Printer p = new Printer();
         String string = "\n----------------------------------------------------\n"
@@ -54,6 +71,9 @@ public class Turn {
         p.displayString(string);
     }
     
+    /**
+     * Make the PC and NPC choose thair actions
+     */
     private void chooseActions() {
         for (int i=0; i<groupPC.size(); i++) {
             Charact charact = groupPC.get(i);
@@ -69,6 +89,9 @@ public class Turn {
         }
     }
     
+    /**
+     * Resolve all actions made this turn
+     */
     private void resolveTurn() {
         Printer p = new Printer();
         p.displayString("\nRecap du tour");

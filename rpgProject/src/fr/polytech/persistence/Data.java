@@ -25,13 +25,19 @@ public final class Data {
     private ArrayList<Charact> groupPC;
     private ArrayList<Event> events;
     
-    // Constructor
+    /**
+     * Constructor
+     * @param groupPC 
+     */
     public Data(ArrayList<Charact> groupPC) {
         this.groupPC = groupPC;
         this.initEvents();
     }
     
     // Methods
+    /**
+     * Initialize events - called in constructor
+     */
     public void initEvents() {
         // Create Events here
         events = new ArrayList<>();
@@ -47,6 +53,9 @@ public final class Data {
         // Second fight
     }
     
+    /**
+     * Initialize first text event
+     */
     public void initText1(){
         String text = groupPC.get(0).getName()
                 + ", confortablement assis sur votre chaise de bureau en train "
@@ -61,6 +70,9 @@ public final class Data {
         events.add(textEvent1);
     }
     
+    /**
+     * Initialize second event - 1st fight
+     */
     public void initFight1() {
         ArrayList<Skill> skills1 = new ArrayList<>();
         skills1.add(new Skill("Crachat", 8, 4, 0, 1));
@@ -84,6 +96,7 @@ public final class Data {
         events.add(fight1);
     }
     
+    // Getters
     public ArrayList<Event> getEvents() {
         return this.events;
     }

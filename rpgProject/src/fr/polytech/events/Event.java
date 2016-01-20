@@ -20,6 +20,10 @@ public abstract class Event {
     protected ArrayList<Charact> groupPC;
     
     // Methods
+    /**
+     * Start the event
+     * @param groupPC 
+     */
     public void start(ArrayList<Charact> groupPC) {
         this.groupPC = groupPC;
         chooseActions();
@@ -27,10 +31,20 @@ public abstract class Event {
         giveRewards();
     }
     
+    /**
+     * Make the Characters choose their actions
+     */
     public abstract void chooseActions();
     
+    /**
+     * Resolve all actions of the event
+     */
     public abstract void resolveActions();
     
+    /**
+     * Test if all PC are dead
+     * @return bool dead
+     */
     public boolean allPCDead() {
         int nbDead = 0;
         for (int i=0; i<groupPC.size(); i++) {
@@ -41,6 +55,11 @@ public abstract class Event {
         return nbDead == groupPC.size();
     }
     
+    /**
+     * Test if all NPC are dead
+     * @param groupNPC
+     * @return 
+     */
     public boolean allNPCDead(ArrayList<Charact> groupNPC) {
         int nbDead = 0;
         for (int i=0; i<groupNPC.size(); i++) {
@@ -51,6 +70,9 @@ public abstract class Event {
         return nbDead == groupNPC.size();
     }
     
+    /**
+     * Distribute exp points
+     */
     public void giveRewards() {
         // xp
         for (int i=0;i<groupPC.size(); i++) {

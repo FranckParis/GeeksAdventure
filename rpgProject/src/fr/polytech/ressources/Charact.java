@@ -39,7 +39,10 @@ public abstract class Charact {
     public abstract void initSkills();
     public abstract void initInventory();
     
-    //Inventory - equip method
+    /**
+     * Inventory - Equip method
+     * @param item 
+     */
     public void equipItem(Item item) {
         if (item instanceof Armor) {
             // 0=helmet ; 1=plackart ; 2=gauntlet ; 3=trousers ; 4=boots
@@ -107,6 +110,11 @@ public abstract class Charact {
     }
     
     // States
+    /**
+     * Apply all CharStates to the Character
+     * Decrement nbTurn
+     * Delete if nbTurn=0
+     */
     public void applyCharStates(){
         ArrayList <CharState> toDelete = new ArrayList<>();
         
@@ -128,12 +136,19 @@ public abstract class Charact {
         }
     }
 
+    /**
+     * Remove all CharStates safely
+     * @param toDelete 
+     */
     public void removeCharState(ArrayList<CharState> toDelete){
         for (int i=toDelete.size(); i>=0; i--) {
             this.charStates.remove(toDelete.get(i));
         }
     }
     
+    /**
+     * method to regen the Character
+     */
     public void resetCharact() {
         this.hp = this.maxHP;
         this.mp = this.maxMP;
@@ -141,6 +156,13 @@ public abstract class Charact {
     }
     
     // Actions
+    /**
+     * Make the PC choose their action each turn
+     * Method used ONLY to PC
+     * @param groupPC
+     * @param groupNPC
+     * @return 
+     */
     public Action chooseAction(ArrayList<Charact> groupPC, ArrayList<Charact> groupNPC) {
         Scanner sc = new Scanner(System.in);
         Printer p = new Printer();
@@ -186,6 +208,10 @@ public abstract class Charact {
     }
             
     // toString
+    /**
+     * Display inventory
+     * @return 
+     */
     public String inventoryToString() {
         String message = "-------Inventory-------";
         
@@ -198,6 +224,13 @@ public abstract class Charact {
     }
     
     // toString
+    /**
+     * Display group
+     * First index needed. 0 if PC 3 if NPC
+     * @param group
+     * @param firstIndex
+     * @return 
+     */
     public String groupToString(ArrayList<Charact> group, int firstIndex) {
         String message = "";
         
@@ -218,6 +251,10 @@ public abstract class Charact {
         return message;
     }
     
+    /**
+     * Display all skills
+     * @return 
+     */
     public String skillsToString() {
         String message = "-------Skills-------";
         

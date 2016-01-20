@@ -19,6 +19,12 @@ public class AbilityScores {
     private int intel;
     
     //Constructors
+    /**
+     * 
+     * @param s strength
+     * @param d dexterity
+     * @param i intelligence
+     */
     public AbilityScores(int s, int d, int i){
         this.strength = s;
         this.dex = d;
@@ -39,32 +45,56 @@ public class AbilityScores {
         return intel;
     }
     
+    /**
+     * Test dice throw
+     * @return bool
+     */
     public boolean abilityTestStrength(){
         Dice d = new Dice();
         int val = d.roll(100);
         return(val < this.strength);
     }
     
+    /**
+     * Test dice throw
+     * @return bool
+     */
     public boolean abilityTestDexterity(){
         Dice d = new Dice();
         int val = d.roll(100);
         return(val < this.dex);
     }
     
+    /**
+     * Test dice throw
+     * @return bool
+     */
     public boolean abilityTestIntel(){
         Dice d = new Dice();
         int val = d.roll(100);
         return(val < this.intel);
     }
     
+    /**
+     * 
+     * @param s 
+     */
     public void increaseStrength (int s){
         this.strength += s;
     }
     
+    /**
+     * 
+     * @param d 
+     */
     public void increaseDex (int d){
         this.dex += d;
     }
     
+    /**
+     * 
+     * @param i 
+     */
     public void increaseIntel (int i){
         this.intel += i;
     }
