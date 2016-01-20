@@ -115,18 +115,28 @@ public class Skill {
             }
             
             int skillDamage = 0;
-            for (int i=0; i<this.nbDices; i++) {
-                skillDamage += dice.roll(this.diceValue);
+            if (this.diceValue > 0) { // damage
+                for (int i=0; i<this.nbDices; i++) {
+                    skillDamage += dice.roll(this.diceValue);
+                }
+            }
+            else { // heal
+                for (int i=0; i<this.nbDices; i++) {
+                    skillDamage -= dice.roll(- this.diceValue);
+                }
             }
             int damage = skillDamage + weaponDamage;
             this.totalDamageWithoutArmor = damage;
             int armor = target.getTotalArmor();
             
             // test negative damage
-            if (damage - armor < 0)
-                this.totalDamage = 0;
-            else
-                this.totalDamage = damage - armor;
+            if (damage > 0) // heals not affected by armor
+            {
+                if (damage - armor < 0)
+                    this.totalDamage = 0;
+                else
+                    this.totalDamage = damage - armor;
+            }
             
             target.setHp(target.getHp() - totalDamage);
             source.setMp(source.getMp() - this.mpCost);
