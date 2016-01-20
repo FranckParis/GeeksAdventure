@@ -74,7 +74,11 @@ public class Skill {
    
     
     //Methods
-    
+    /**
+     * Result of a ability dice throw
+     * @param source
+     * @return 
+     */
     public boolean successTest(Charact source) {
         // jet dé
         boolean successTest = false;
@@ -93,6 +97,11 @@ public class Skill {
         return successTest;
     }
     
+    /**
+     * Apply CharState part of a skill
+     * @param source
+     * @param target 
+     */
     public void useSkillCharState (Charact source, Charact target){
         if (this.charState != null) {
             if (!target.isImmune()){
@@ -103,6 +112,11 @@ public class Skill {
         }
     }
     
+    /**
+     * Apply raw damage part of a skill
+     * @param source
+     * @param target 
+     */
     public void useSkillDamage (Charact source, Charact target){
         if(successTest(source)){
             int weaponDamage = 0;
@@ -179,8 +193,10 @@ public class Skill {
         return totalDamageWithoutArmor;
     }
     
-    
-    
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         String message = name + " (";

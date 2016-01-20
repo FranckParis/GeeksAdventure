@@ -17,7 +17,7 @@ public class Weapon extends Item {
     
     // Constructors
     /**
-     * Constructor for a unique dice whithout charStates
+     * Constructor for a unique dice without charStates
      * @param name
      * @param damageDice
      * @param weight 
@@ -52,7 +52,7 @@ public class Weapon extends Item {
     }
     
     /**
-     * Most detailed constructor - Mulple Dices and CharSate
+     * Most detailed constructor - Multiple Dices and CharSate
      * @param name
      * @param damageDice
      * @param nbDice

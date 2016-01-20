@@ -11,6 +11,10 @@ import java.util.ArrayList;
  */
 public class Nooby extends Charact {
     
+    /**
+     * 
+     * @param pos in groupPC
+     */
     public Nooby(int pos){
         this.name = "Kevin";
         this.maxHP = this.hp = 150;
@@ -26,6 +30,9 @@ public class Nooby extends Charact {
         initInventory();
     }
 
+    /**
+     * Initialize all skills
+     */
     @Override
     public void initSkills() {
         
@@ -41,6 +48,9 @@ public class Nooby extends Charact {
         this.skills.add(new Skill ("This is SPAAAAARTA", 20, 3, 50, 0));
     }
 
+    /**
+     * Initialize all Items
+     */
     @Override
     public void initInventory() {
         this.inventory = new ArrayList<>();

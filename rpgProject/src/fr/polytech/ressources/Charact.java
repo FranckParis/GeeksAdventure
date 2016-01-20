@@ -271,6 +271,9 @@ public abstract class Charact {
         this.experience.addXp(xp);
     }
     
+    /**
+     * Check if a character has taken a level. Improve his level 
+     */
     public void checkLevelUp(){
         Printer p = new Printer();
         Scanner sc = new Scanner(System.in);
@@ -334,6 +337,10 @@ public abstract class Charact {
     }
     
     // getters
+    /**
+     * 
+     * @return armor sum of all items and charStates
+     */
     public int getTotalArmor() {
         int totalArmor = 0;
         totalArmor += this.getArmorClass() + this.getArmorBuff();

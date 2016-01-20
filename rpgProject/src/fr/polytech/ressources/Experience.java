@@ -17,6 +17,9 @@ public class Experience {
     boolean levelUp;
     
     //Constructors
+    /**
+     * 
+     */
     public Experience() {
         this.xpPoints = 0;
         this.level = 1;
@@ -25,6 +28,10 @@ public class Experience {
     
     //Methods
     
+    /**
+     * 
+     * @param xp 
+     */
     public void addXp (int xp){
         this.xpPoints += xp;
         if(this.xpPoints % 100 == 0){

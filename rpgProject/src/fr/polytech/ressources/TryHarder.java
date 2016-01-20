@@ -16,6 +16,7 @@ public class TryHarder extends Charact {
     /**
      * Standard constructor to create a TryHarder character
      * @param name 
+     * @param pos in groupPC
      */
     public TryHarder(String name, int pos){
         this.name = name;
@@ -33,6 +34,9 @@ public class TryHarder extends Charact {
     }
 
 
+    /**
+     * Initialize all skills
+     */
     @Override
     public void initSkills() {
         skills = new ArrayList<>();
@@ -48,6 +52,9 @@ public class TryHarder extends Charact {
         this.skills.add(new Skill ("J'carry la game gros", 20, 4, 42, 2));
     }
 
+    /**
+     * Initialize all Items
+     */
     @Override
     public void initInventory() {
         this.inventory = new ArrayList<>();

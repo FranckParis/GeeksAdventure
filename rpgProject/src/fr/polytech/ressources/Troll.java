@@ -16,6 +16,7 @@ public class Troll extends Charact {
     /**
      * Standard constructor to create a Troll character
      * @param name 
+     * @param pos in groupPC
      */
     public Troll(String name, int pos){
         this.name = name;
@@ -32,6 +33,9 @@ public class Troll extends Charact {
     }
 
 
+    /**
+     * Initialize all skills
+     */
     @Override
     public void initSkills() {
         
@@ -47,6 +51,9 @@ public class Troll extends Charact {
         this.skills.add(new Skill ("Combo-kill", 10, 7, 45, 0));
     }
 
+    /**
+     * Initialize all Items
+     */
     @Override
     public void initInventory() {
         this.inventory = new ArrayList<>();

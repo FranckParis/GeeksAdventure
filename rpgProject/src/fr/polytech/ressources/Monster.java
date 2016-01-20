@@ -15,6 +15,16 @@ import me.grea.antoine.utils.Dice;
  */
 public class Monster extends Charact{
 
+    /**
+     * 
+     * @param name
+     * @param lvl
+     * @param HP
+     * @param MP
+     * @param stats
+     * @param skills
+     * @param inventory 
+     */
     public Monster(String name, int lvl, int HP, int MP, AbilityScores stats, 
             ArrayList<Skill> skills, ArrayList<Item> inventory){
         this.name = name;
@@ -29,6 +39,12 @@ public class Monster extends Charact{
         this.charStates = new ArrayList<>();
     }
 
+    /**
+     * Specific method to monsters
+     * @param PC
+     * @param NPC
+     * @return 
+     */
     @Override
     public Action chooseAction(ArrayList<Charact> PC, ArrayList<Charact> NPC) {
         // Target
