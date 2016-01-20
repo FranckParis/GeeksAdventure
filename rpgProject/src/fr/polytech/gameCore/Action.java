@@ -41,7 +41,9 @@ public class Action {
                 
                 message += source.getName() + " inflige " + skill.getTotalDamage() + "("
                         + skill.getTotalDamageWithoutArmor() + "-" + target.getTotalArmor() + ") dégats à "
-                        + target.getName() + ".";
+                        + target.getName() + ". ";
+                if (target.isDead())
+                    message += target.getName() + " est mort ! Bravo " + source.getName() + " !";
             }
         }
         
