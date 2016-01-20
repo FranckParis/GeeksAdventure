@@ -204,9 +204,15 @@ public abstract class Charact {
         int nb;
         for (int i=0; i<group.size(); i++) {
             nb = firstIndex + i;
-            message += nb + " - " + group.get(i).getName() + " \n" + group.get(i).getHp() + "/"
-                    + group.get(i).getMaxHp() + " hp \n" + group.get(i).getMp() + 
-                    "/" + group.get(i).getMaxMp() + " mp \n";
+            String state;
+            if (group.get(i).getHp() <= 0)
+                state = "  Dead ! BIIIM !\n";
+            else
+                state = group.get(i).getHp() + "/"
+                    + group.get(i).getMaxHp() + " hp   " + group.get(i).getMp() + 
+                    "/" + group.get(i).getMaxMp() + " mp\n";
+                
+            message += nb + " - " + group.get(i).getName() + " - " + state;
         }
         
         return message;

@@ -44,11 +44,11 @@ public abstract class Event {
     public boolean allNPCDead(ArrayList<Charact> groupNPC) {
         int nbDead = 0;
         for (int i=0; i<groupNPC.size(); i++) {
-            if (groupNPC.get(i).getHp() < 0)
-                nbDead ++; 
+            if (groupNPC.get(i).getHp() <= 0)
+                nbDead ++;
         }
         
-        return nbDead == groupPC.size();
+        return nbDead == groupNPC.size();
     }
     
     public void giveRewards() {
